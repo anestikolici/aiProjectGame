@@ -1,17 +1,31 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] MouseLook mouseLook;
-    PlayerInputs controls;
+    [Tooltip("Player Movement Script")]
+    [SerializeField] 
+    private PlayerMovement playerMovement;
 
-    Vector2 movement;
-    Vector2 mouseInput;
+    [Tooltip("Player Σηοοτινγ Script")]
+    [SerializeField]
+    private PlayerShooting playerShooting;
 
-    PlayerInputs.PlayerActions player;
+    [Tooltip("Mouse Look Script")]
+    [SerializeField] 
+    private MouseLook mouseLook;
+
+    [Tooltip("Weapon Controller Script")]
+    [SerializeField]
+    private WeaponController weaponController;
+
+    private PlayerInputs controls;
+
+    private Vector2 movement;
+    private Vector2 mouseInput;
+
+    private PlayerInputs.PlayerActions player;
     
     void Awake()
     {
@@ -20,9 +34,11 @@ public class InputManager : MonoBehaviour
 
         player.Move.performed += ctx => movement = ctx.ReadValue<Vector2>();
         player.Jump.performed += _ => playerMovement.OnJumpPressed();
-        player.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
-        player.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+        player.Mouse.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
 
+        player.Fire.performed += _ => playerShooting.FirePressed();
+        player.FireReleased.performed += _ => playerShooting.FireReleased();
+        player.Reload.performed += _ => playerShooting.OnReloadPressed();
     }
 
     void Update()

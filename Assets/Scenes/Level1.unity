@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 421588007}
   m_Layer: 0
   m_Name: Cube 2
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1027,6 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!43 &442900828
 Mesh:
   m_ObjectHideFlags: 0
@@ -1192,6 +1193,52 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &520276632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520276634}
+  - component: {fileID: 520276633}
+  m_Layer: 0
+  m_Name: CodeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &520276633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520276632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf01c18573a66b4d8f99e582d57fd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightsOff: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  lightsOn: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
+--- !u!4 &520276634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520276632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.009243, y: -0.54222834, z: 7.937803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543358089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1256,7 @@ GameObject:
   - component: {fileID: 543358096}
   m_Layer: 0
   m_Name: Cube 5
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1559,6 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1001 &626641101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2885,6 +2933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 0}
+  hitCounts: 0
 --- !u!1 &933606545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4972167997025983197, guid: 22d2c44fed4ffa743aac7afe4d993905, type: 3}
@@ -3564,7 +3613,7 @@ GameObject:
   - component: {fileID: 1080350632}
   m_Layer: 0
   m_Name: Cube 7
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3914,6 +3963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!43 &1085109566
 Mesh:
   m_ObjectHideFlags: 0
@@ -4876,7 +4926,7 @@ GameObject:
   - component: {fileID: 1226181646}
   m_Layer: 0
   m_Name: Cube 4
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5226,6 +5276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &1348168376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,7 +6889,7 @@ GameObject:
   - component: {fileID: 1622123021}
   m_Layer: 0
   m_Name: Cube 3
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7188,6 +7239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &1657907384
 GameObject:
   m_ObjectHideFlags: 0
@@ -9438,7 +9490,7 @@ GameObject:
   - component: {fileID: 1905601251}
   m_Layer: 0
   m_Name: Cube 9
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9788,6 +9840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &1994064852
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,7 +9858,7 @@ GameObject:
   - component: {fileID: 1994064859}
   m_Layer: 0
   m_Name: Cube 1
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10155,6 +10208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &2053400297
 GameObject:
   m_ObjectHideFlags: 0
@@ -10560,7 +10614,7 @@ GameObject:
   - component: {fileID: 2091829888}
   m_Layer: 0
   m_Name: Cube 8
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10910,6 +10964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &2094609518
 GameObject:
   m_ObjectHideFlags: 0
@@ -10927,7 +10982,7 @@ GameObject:
   - component: {fileID: 2094609525}
   m_Layer: 0
   m_Name: Cube 6
-  m_TagString: Untagged
+  m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11277,6 +11332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 7338a79aa007d434181e77ff5b21b996, type: 2}
+  hitCounts: 0
 --- !u!1 &9171101008692159
 GameObject:
   m_ObjectHideFlags: 0
@@ -14055,3 +14111,4 @@ SceneRoots:
   - {fileID: 1657907390}
   - {fileID: 2089984513}
   - {fileID: 1109687243}
+  - {fileID: 520276634}

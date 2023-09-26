@@ -75,7 +75,7 @@ public class Laser : MonoBehaviour
 
         }
 
-        logic.CheckPuzzle();
+               logic.CheckPuzzle();
 
         Destroy(gameObject);
     }

@@ -21,12 +21,6 @@ public class logicFunctions : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadPillar()
     {
         int rnd;
@@ -35,7 +29,7 @@ public class logicFunctions : MonoBehaviour
 
             pillarList.Add(pillarKey[i].name, rnd = UnityEngine.Random.Range(1, 3)) ;
 
-        Debug.Log("asdasd"+pillarList);
+        //Debug.Log("asdasd"+pillarList);
 
         }
 
@@ -108,7 +102,7 @@ public class logicFunctions : MonoBehaviour
                 count++;
                 if(count == 3) { 
                     //put door opening
-                    Debug.Log("SOLVED");
+                    Debug.Log("SOLVED"); //we have to put a bool check befoer this, to check if the player has shot, because now the puzzle is solved immediately after starting
                 }
             }
         }

@@ -19,6 +19,7 @@ public class MaterialChanger : MonoBehaviour
     GameObject[] cubes_2;
     GameObject[] cubes_3;
 
+    private logicFunctions logic;
 
 
     void Start()
@@ -29,28 +30,38 @@ public class MaterialChanger : MonoBehaviour
         //print(selectedcube.name);
         //selectedcube.GetComponent<MeshRenderer>().material= lightOn; //opening randomly some lights at the begining of the game
         //parentGameObject = this.gameObject.transform.parent.gameObject;
-        cubes_1 = GameObject.FindGameObjectsWithTag("lights2");
-        print(cubes_1);
+        cubes_1 = GameObject.FindGameObjectsWithTag("lights1");
+        cubes_2 = GameObject.FindGameObjectsWithTag("lights2");
+        cubes_3 = GameObject.FindGameObjectsWithTag("lights3");
 
-       
+        logic = GameObject.Find("Logic").GetComponent<logicFunctions>();
+
+
+        ChangeMaterial(logic.PillarList);
 
 
     }
 
-    void Update()
+   
+    public void ChangeMaterial(Dictionary<string, int> PillarList )
     {
 
-    }
+        
+        //First pillar
+        foreach (GameObject cube in cubes_1)
+        {
 
-    void OnTriggerEnter(Collider other)
-    {
-
-       
+            cube.GetComponent<MeshRenderer>().sharedMaterial = lightOff;
+            
+        }
+        Debug.Log("check");
 
         for (int i=0;i<3;i++)
         {
+            if (PillarList["Pillar1"]<=i) { continue; }
 
-            print(cubes_1[i].GetComponent<MeshRenderer>().sharedMaterial.name);
+            print(PillarList["Pillar1"]);
+            
             if (cubes_1[i].GetComponent<MeshRenderer>().sharedMaterial == lightOff)
             {
                 cubes_1[i].GetComponent<MeshRenderer>().sharedMaterial = lightOn;
@@ -60,7 +71,51 @@ public class MaterialChanger : MonoBehaviour
             {
                 cubes_1[i].GetComponent<MeshRenderer>().sharedMaterial = lightOff;
             }
+
+
         }
+
+        //Second pillar
+        foreach (GameObject cube in cubes_2)
+        {
+
+            cube.GetComponent<MeshRenderer>().sharedMaterial = lightOff;
+
+        }
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (PillarList["Pillar2"] <= i) { continue; }
+
+            print(PillarList["Pillar2"]);
+
+            cubes_2[i].GetComponent<MeshRenderer>().sharedMaterial = lightOn;
+
+            Debug.Log("test pillar 2");
+
+        }
+
+        //Third pillar
+        foreach (GameObject cube in cubes_3)
+        {
+
+            cube.GetComponent<MeshRenderer>().sharedMaterial = lightOff;
+
+        }
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (PillarList["Pillar3"] <= i) { continue; }
+
+            print(PillarList["Pillar3"]);
+
+            cubes_3[i].GetComponent<MeshRenderer>().sharedMaterial = lightOn;
+
+
+        }
+
 
         //not deleting it because i want it as reference
         /*    foreach (GameObject light in lights)
@@ -87,7 +142,7 @@ public class MaterialChanger : MonoBehaviour
              GetComponent<MeshRenderer>().sharedMaterial = lightOff;
          }*/
 
-        hitCounts++;
+        
         
 
 

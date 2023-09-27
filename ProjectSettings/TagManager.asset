@@ -8,6 +8,10 @@ TagManager:
   - laser
   - weapon
   - lights
+  - pillar
+  - lights2
+  - lights1
+  - lights3
   layers:
   - Default
   - TransparentFX

@@ -17,12 +17,14 @@ public class Laser : MonoBehaviour
     /// </summary>
     /// 
     private logicFunctions logic;
+    private MaterialChanger materialChanger;
 
     void Start()
     {
         transform.forward = Camera.main.transform.position - transform.position;
         logic= GameObject.Find("Logic").GetComponent<logicFunctions>();
-
+        materialChanger = GameObject.Find("cube1").GetComponent<MaterialChanger>();
+        
     }
    
 
@@ -76,6 +78,7 @@ public class Laser : MonoBehaviour
         }
 
                logic.CheckPuzzle();
+        materialChanger.ChangeMaterial(logic.PillarList);
 
         Destroy(gameObject);
     }

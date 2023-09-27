@@ -8,7 +8,17 @@ using System.Linq;
 public class logicFunctions : MonoBehaviour
 {
     private Dictionary<string, int> pillarList;
+
+    private MaterialChanger materialChanger;
+
+    [SerializeField] Light doorLight;
+
+    public Dictionary<string, int> PillarList
+    {
+        get { return pillarList; }
+    }
     private GameObject[] pillarKey;
+   
    
 
     // Start is called before the first frame update
@@ -17,8 +27,13 @@ public class logicFunctions : MonoBehaviour
         pillarList = new Dictionary<string, int>();
         pillarKey = GameObject.FindGameObjectsWithTag("pillar");
 
+        materialChanger = GameObject.Find("cube1").GetComponent<MaterialChanger>();
+
+
         LoadPillar();
-        
+
+        //loads lights
+
     }
 
     public void LoadPillar()
@@ -29,12 +44,18 @@ public class logicFunctions : MonoBehaviour
 
             pillarList.Add(pillarKey[i].name, rnd = UnityEngine.Random.Range(1, 3)) ;
 
-        //Debug.Log("asdasd"+pillarList);
+
+            //Debug.Log("asdasd"+pillarList);
 
         }
 
         foreach (KeyValuePair<string, int> kvp in pillarList)
             Debug.Log( kvp.Key + "/" + kvp.Value);
+
+
+
+
+
     }
 
     //increments the number for the puzzle from 1 to 3
@@ -100,14 +121,22 @@ public class logicFunctions : MonoBehaviour
             if(kvp.Value == temp)
             {
                 count++;
-                if(count == 3) { 
+                if (count == 3)
+                {
                     //put door opening
-                    Debug.Log("SOLVED"); //we have to put a bool check befoer this, to check if the player has shot, because now the puzzle is solved immediately after starting
+                    doorLight.color = Color.green;
+                    Debug.Log("SOLVED");
+
                 }
+
             }
         }
 
     }
+
+
+
+    
 
 
 }

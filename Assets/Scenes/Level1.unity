@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 421588008}
   - component: {fileID: 421588007}
   m_Layer: 0
-  m_Name: Cube 2
+  m_Name: Cubes_1
   m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6888,7 +6888,7 @@ GameObject:
   - component: {fileID: 1622123022}
   - component: {fileID: 1622123021}
   m_Layer: 0
-  m_Name: Cube 3
+  m_Name: Cubes_1
   m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9857,7 +9857,7 @@ GameObject:
   - component: {fileID: 1994064860}
   - component: {fileID: 1994064859}
   m_Layer: 0
-  m_Name: Cube 1
+  m_Name: Cubes_1
   m_TagString: lights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

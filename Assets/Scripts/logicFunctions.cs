@@ -12,12 +12,17 @@ public class logicFunctions : MonoBehaviour
     private MaterialChanger materialChanger;
 
     [SerializeField] Light doorLight;
+    [SerializeField] GameObject door;
+    public bool isSolved;
 
     public Dictionary<string, int> PillarList
     {
         get { return pillarList; }
     }
     private GameObject[] pillarKey;
+
+
+    
    
    
 
@@ -29,7 +34,7 @@ public class logicFunctions : MonoBehaviour
 
         materialChanger = GameObject.Find("cube1").GetComponent<MaterialChanger>();
 
-
+        isSolved = false;
         LoadPillar();
 
         //loads lights
@@ -125,6 +130,8 @@ public class logicFunctions : MonoBehaviour
                 {
                     //put door opening
                     doorLight.color = Color.green;
+                    door.GetComponent<DoorRotation>().enabled = true;
+                    isSolved = true;
                     Debug.Log("SOLVED");
 
                 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 
 
@@ -14,6 +15,8 @@ public class logicFunctions : MonoBehaviour
     [SerializeField] Light doorLight;
     [SerializeField] GameObject door;
     public bool isSolved;
+    public TextMeshProUGUI messageText;
+    public string messageContent = "Puzzle cleared! The door has opened"; 
 
     public Dictionary<string, int> PillarList
     {
@@ -127,6 +130,8 @@ public class logicFunctions : MonoBehaviour
                     doorLight.color = Color.green;
                     door.GetComponent<DoorRotation>().enabled = true;
                     isSolved = true;
+                    messageText.text = messageContent;
+                    messageText.enabled = true;
                     Debug.Log("SOLVED");
 
                 }

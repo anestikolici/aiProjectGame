@@ -8,7 +8,9 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
+    private logicFunctions logic;
+    private MaterialChanger materialChanger;
+    private static bool isSolved = false;
 
 
     #region - Start/Update -
@@ -16,11 +18,11 @@ public class Laser : MonoBehaviour
     /// Called before the first frame update
     /// </summary>
     /// 
-    private logicFunctions logic;
-    private MaterialChanger materialChanger;
+
 
     void Start()
     {
+        Debug.Log(124124);
         transform.forward = Camera.main.transform.position - transform.position;
         logic= GameObject.Find("Logic").GetComponent<logicFunctions>();
         materialChanger = GameObject.Find("cube1").GetComponent<MaterialChanger>();
@@ -59,26 +61,29 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-
-        switch (other.gameObject.name)
+        if (!isSolved)
         {
-            case "Pillar1":
-                
-                logic.IncrementPillar("Pillar1");
-                break;
-            case "Pillar2":
-                
-                logic.IncrementPillar("Pillar2");
-                break;
-            case "Pillar3":
-                
-                logic.IncrementPillar("Pillar3");
-                break;
+            switch (other.gameObject.name)
+            {
+                case "Pillar1":
 
+                    logic.IncrementPillar("Pillar1");
+                    break;
+                case "Pillar2":
+
+                    logic.IncrementPillar("Pillar2");
+                    break;
+                case "Pillar3":
+
+                    logic.IncrementPillar("Pillar3");
+                    break;
+
+            }
+
+            isSolved = logic.CheckPuzzle();
+            materialChanger.ChangeMaterial(logic.PillarList);
         }
 
-               logic.CheckPuzzle();
-        materialChanger.ChangeMaterial(logic.PillarList);
 
         Destroy(gameObject);
     }

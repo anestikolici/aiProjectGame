@@ -10,13 +10,16 @@ public class logicFunctions : MonoBehaviour
 {
     private Dictionary<string, int> pillarList;
 
-    private MaterialChanger materialChanger;
-
     [SerializeField] Light doorLight;
     [SerializeField] GameObject door;
     public bool isSolved;
     public TextMeshProUGUI messageText;
-    public string messageContent = "Puzzle cleared! The door has opened"; 
+    public string messageContent = "Puzzle cleared! The door has opened";
+
+    // List of questionnaire question objects
+    [Tooltip("List of questionnaire question objects")]
+    [SerializeField]
+    private List<GameObject> questionnaireQuestions;
 
     public Dictionary<string, int> PillarList
     {
@@ -30,8 +33,6 @@ public class logicFunctions : MonoBehaviour
     {
         pillarList = new Dictionary<string, int>();
         pillarKey = GameObject.FindGameObjectsWithTag("pillar");
-
-        materialChanger = GameObject.Find("cube1").GetComponent<MaterialChanger>();
 
         isSolved = false;
         LoadPillar();
@@ -112,7 +113,7 @@ public class logicFunctions : MonoBehaviour
         return incr;
     }
 
-    public void CheckPuzzle()
+    public bool CheckPuzzle()
     {
 
         int temp = pillarList.ElementAt(0).Value;
@@ -133,12 +134,12 @@ public class logicFunctions : MonoBehaviour
                     messageText.text = messageContent;
                     messageText.enabled = true;
                     Debug.Log("SOLVED");
-
+                    questionnaireQuestions[0].SetActive(true);
                 }
 
             }
         }
-
+        return isSolved;
     }
 
 

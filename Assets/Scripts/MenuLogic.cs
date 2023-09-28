@@ -34,6 +34,13 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject controlsMenu;
 
+    [Tooltip("Game Goal Panel")]
+    [SerializeField]
+    private GameObject goalPanel;
+
+
+    
+
     // Start is called before the first frame update
     public void StartButton()
     {
@@ -71,6 +78,13 @@ public class MenuLogic : MonoBehaviour
     public void BackButton()
     {
         controlsMenu.SetActive(false);
+        goalPanel.SetActive(false);
         mainMenu.SetActive(true);     
+    }
+
+    public void GoalButton()
+    {
+        mainMenu.SetActive(false);
+        goalPanel.SetActive(true);
     }
 }

@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         headbobAnchorOriginalPos = headbobbingAnchor.transform.localPosition;
-
-        cameraOriginalPos = Camera.main.transform.localPosition;
     }
 
     void Update()
@@ -87,6 +85,11 @@ public class PlayerMovement : MonoBehaviour
             CameraBobbing(movementCounter, 0.001f, 0.06f);
             movementCounter += Time.deltaTime * movementSpeed;
         }     
+    }
+
+    public void SetCameraOriginalPos()
+    {
+        cameraOriginalPos = Camera.main.transform.localPosition;
     }
 
     public void ReceiveInput(Vector2 _movement)

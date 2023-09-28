@@ -22,10 +22,6 @@ public class logicFunctions : MonoBehaviour
     private GameObject[] pillarKey;
 
 
-    
-   
-   
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,24 +39,23 @@ public class logicFunctions : MonoBehaviour
 
     public void LoadPillar()
     {
-        int rnd;
+        HashSet<int> rnd_values = new();
         for (int i = 0; i < 3; i++)
         {
+            int rnd = Random.Range(1, 4);
+            rnd_values.Add(rnd);
+            pillarList.Add(pillarKey[i].name, rnd);
+        }
 
-            pillarList.Add(pillarKey[i].name, rnd = UnityEngine.Random.Range(1, 3)) ;
-
-
-            //Debug.Log("asdasd"+pillarList);
-
+        // Ensure that not all pillars have the same rnd value
+        if (rnd_values.Count == 1)
+        {
+            while (pillarList["Pillar1"] == pillarList["Pillar3"])
+                pillarList["Pillar3"] = Random.Range(1, 4);
         }
 
         foreach (KeyValuePair<string, int> kvp in pillarList)
             Debug.Log( kvp.Key + "/" + kvp.Value);
-
-
-
-
-
     }
 
     //increments the number for the puzzle from 1 to 3

@@ -26,8 +26,19 @@ public class InputManager : MonoBehaviour
     private Vector2 mouseInput;
 
     private PlayerInputs.PlayerActions player;
-    
-    void Awake()
+
+    void Update()
+    {
+        playerMovement.ReceiveInput(movement);
+        mouseLook.ReceiveInput(mouseInput);
+    }
+
+    void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    public void EnablePlayerInput()
     {
         controls = new PlayerInputs();
         player = controls.Player;
@@ -39,20 +50,11 @@ public class InputManager : MonoBehaviour
         player.Fire.performed += _ => playerShooting.FirePressed();
         player.FireReleased.performed += _ => playerShooting.FireReleased();
         player.Reload.performed += _ => playerShooting.OnReloadPressed();
-    }
 
-    void Update()
-    {
-        playerMovement.ReceiveInput(movement);
-        mouseLook.ReceiveInput(mouseInput);
-    }
+        // Hide and lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
-    void OnEnable()
-    {
         controls.Enable();
-    }
-    void OnDisable()
-    {
-        controls.Disable();
     }
 }

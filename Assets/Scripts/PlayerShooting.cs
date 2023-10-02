@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class PlayerShooting : MonoBehaviour
 {
+    #region - Serialize Fields -
     // Weapon anchor
     [Tooltip("Weapon anchor")]
     [SerializeField]
@@ -66,11 +65,18 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField]
     private PlayerMovement playerMovement;
 
+    #endregion
+
+    #region - Non Serialize Fields -
+
     // Bollean containing whether the Player is shooting or not
     private bool isShooting = false;
 
     // Current Player ammo
     private int currentAmmo;
+
+    // Total number of bullets that have been shot
+    private int totalBullets = 0;
 
     // Time passed after the last bullet was fired by the player
     private float lastFired;
@@ -81,6 +87,9 @@ public class PlayerShooting : MonoBehaviour
     // Original weapon rotation
     private Quaternion originalWeaponRotation;
 
+    #endregion
+
+    #region - Start/Update -
     /// <summary>
     /// Called before the first frame update
     /// </summary>
@@ -103,6 +112,9 @@ public class PlayerShooting : MonoBehaviour
         Shooting();
     }
 
+    #endregion
+
+    #region - Shooting -
     /// <summary>
     /// Player shooting
     /// </summary>
@@ -113,6 +125,7 @@ public class PlayerShooting : MonoBehaviour
             if (Time.time > lastFired + fireRate)
             {
                 currentAmmo--;
+                totalBullets++;
                 ammoText.SetText("Ammo: " + currentAmmo);
                 lastFired = Time.time;
                 float currentRecoil = recoil * 1.5f;
@@ -145,6 +158,8 @@ public class PlayerShooting : MonoBehaviour
         isShooting = false;
     }
 
+    #endregion
+
     #region - Reload -
 
     public void OnReloadPressed()
@@ -170,5 +185,17 @@ public class PlayerShooting : MonoBehaviour
             ammoText.SetText("Ammo: " + currentAmmo);
         }
     }
+    #endregion
+
+    #region - Other Methods -
+    /// <summary>
+    /// Returns the total number of bullets that have been shot
+    /// </summary>
+    /// <returns>Total number of bullets that have been shot</returns>
+    public int GetBulletsShot()
+    {
+        return totalBullets;
+    }
+
     #endregion
 }

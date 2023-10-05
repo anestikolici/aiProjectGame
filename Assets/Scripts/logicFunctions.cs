@@ -21,6 +21,11 @@ public class logicFunctions : MonoBehaviour
     [SerializeField]
     private List<GameObject> questionnaireQuestions;
 
+    // AudioPlayerCleared script
+    [Tooltip("AudioPlayerCleared script")]
+    [SerializeField]
+    private AudioPlayerCleared audioPlayerCleared;
+
     public Dictionary<string, int> PillarList
     {
         get { return pillarList; }
@@ -133,6 +138,7 @@ public class logicFunctions : MonoBehaviour
                     isSolved = true;
                     messageText.text = messageContent;
                     messageText.enabled = true;
+                    audioPlayerCleared.PlayAudio();
                     Debug.Log("SOLVED");
                     questionnaireQuestions[0].SetActive(true);
                 }

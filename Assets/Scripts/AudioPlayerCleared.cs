@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 // chord that plays when level gets cleared
-public class AudioPlayer : MonoBehaviour
+public class AudioPlayerCleared : MonoBehaviour
 {
-    public logicFunctions LogicFunctions;
     public AudioClip soundClipcleared;
     private AudioSource audioSource;
     private bool hasPlayed = false;
@@ -19,9 +18,9 @@ public class AudioPlayer : MonoBehaviour
 
     }
 
-    private void Update()
+    public void PlayAudio()
     {
-        if (LogicFunctions.isSolved && !audioSource.isPlaying && !hasPlayed)
+        if (!audioSource.isPlaying && !hasPlayed)
         {
             audioSource.Play();
             hasPlayed = true;

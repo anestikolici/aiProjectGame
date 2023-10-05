@@ -14,6 +14,11 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private PlayerMovement playerMovement;
 
+    // MouseLook script
+    [Tooltip("MouseLook script")]
+    [SerializeField]
+    private MouseLook mouseLook;
+
     // Main camera
     [Tooltip("Main Camera")]
     [SerializeField]
@@ -36,10 +41,7 @@ public class MenuLogic : MonoBehaviour
 
     [Tooltip("Game Goal Panel")]
     [SerializeField]
-    private GameObject goalPanel;
-
-
-    
+    private GameObject goalPanel;  
 
     // Start is called before the first frame update
     public void StartButton()
@@ -61,9 +63,11 @@ public class MenuLogic : MonoBehaviour
         }
         mainCamera.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
 
-        cameraChildren.SetActive(true);
+        if (cameraChildren != null)
+            cameraChildren.SetActive(true);
         inputManager.EnablePlayerInput();
         playerMovement.SetCameraOriginalPos();
+        mouseLook.EnableMouseLook();
 
         gameObject.SetActive(false);
     }

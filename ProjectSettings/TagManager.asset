@@ -12,6 +12,7 @@ TagManager:
   - lights2
   - lights1
   - lights3
+  - Tile
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Ground
   - Weapon
-  - 
+  - Player
   - 
   - 
   - 

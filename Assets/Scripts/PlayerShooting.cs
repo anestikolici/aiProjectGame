@@ -87,6 +87,9 @@ public class PlayerShooting : MonoBehaviour
     // Original weapon rotation
     private Quaternion originalWeaponRotation;
 
+    // Controls if the puzzle has been solved
+    private bool isSolved = false;
+
     #endregion
 
     #region - Start/Update -
@@ -125,7 +128,8 @@ public class PlayerShooting : MonoBehaviour
             if (Time.time > lastFired + fireRate)
             {
                 currentAmmo--;
-                totalBullets++;
+                if (isSolved)
+                    totalBullets++;
                 ammoText.SetText("Ammo: " + currentAmmo);
                 lastFired = Time.time;
                 float currentRecoil = recoil * 1.5f;
@@ -139,7 +143,7 @@ public class PlayerShooting : MonoBehaviour
             }
         }
         weapon.transform.SetLocalPositionAndRotation(Vector3.Lerp(weapon.transform.localPosition, originalWeaponPosition, Time.deltaTime * 10 / 2f),
-                                                     Quaternion.Lerp(weapon.transform.localRotation, originalWeaponRotation, Time.deltaTime * 4f));
+                                 Quaternion.Lerp(weapon.transform.localRotation, originalWeaponRotation, Time.deltaTime * 4f));
     }
 
     /// <summary>
@@ -195,6 +199,24 @@ public class PlayerShooting : MonoBehaviour
     public int GetBulletsShot()
     {
         return totalBullets;
+    }
+
+    /// <summary>
+    /// Sets the player's ammo count
+    /// </summary>
+    /// <param name="ammo">Ammo count</param>
+    public void SetAmmo(int ammo)
+    {
+        currentAmmo = ammo;
+    }
+
+    /// <summary>
+    /// Sets the isSolved bariable
+    /// </summary>
+    /// <param name="isSolved">Controls whether the puzzle has been solved or not</param>
+    public void SetIsSolved(bool isSolved)
+    {
+        this.isSolved = isSolved;
     }
 
     #endregion

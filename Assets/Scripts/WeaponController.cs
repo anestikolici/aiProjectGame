@@ -75,7 +75,7 @@ public class WeaponController : MonoBehaviour
         Quaternion swayAdjustmentY = Quaternion.AngleAxis(swayIntensity * mouseX, Vector3.right);
         Quaternion swayRotation = originalSwayRotation * swayAdjustmentX * swayAdjustmentY;
 
-        swayAnchor.localRotation = Quaternion.Lerp(swayAnchor.localRotation, swayRotation, Time.deltaTime * swaySmooth);
+        swayAnchor.localRotation = Quaternion.Lerp(swayAnchor.transform.localRotation, swayRotation, Time.deltaTime * swaySmooth);
     }
     #endregion
 }

@@ -17,9 +17,19 @@ public class QuestionnaireManager : MonoBehaviour
     private GameObject gameEnded;
 
     // Player shooting script
-    [Tooltip("Player shooting script")]
+    [Tooltip("Player shooting script. Is only required in puzzles with shooting")]
     [SerializeField]
     private PlayerShooting playerShooting;
+
+    // Reset tile
+    [Tooltip("Reset tile. Is only required for the tile puzzle.")]
+    [SerializeField]
+    private Tile resetTile;
+
+    // Current level number
+    [Tooltip("Current level number")]
+    [SerializeField]
+    private string currentLevel = "1";
 
     #endregion
 
@@ -28,9 +38,6 @@ public class QuestionnaireManager : MonoBehaviour
     // List containing the answers to the questionnaire questions
     [HideInInspector]
     public List<string> questionAnswers = new();
-
-    // Current level number
-    private string currentLevel = "1";
 
     // Index of the current questionnaire question
     private int currentQuestionIndex = 0;
@@ -63,11 +70,14 @@ public class QuestionnaireManager : MonoBehaviour
     public void SaveToCSV()
     {
         TextWriter tw = new StreamWriter("player_data.csv", false);
-        tw.WriteLine("Level; Frustration; Difficulty; Bullets Shot");
+        tw.WriteLine("Level; Frustration; Difficulty; Bullets Shot; Number of Resets");
         tw.Close();
 
         tw = new StreamWriter("player_data.csv", true);
-        tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot());
+        if (currentLevel == "1") 
+            tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";_");
+        else
+            tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_" + ";" + resetTile.GetTotalResets());
         tw.Close();
     }
 

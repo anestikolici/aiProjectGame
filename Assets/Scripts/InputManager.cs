@@ -14,11 +14,7 @@ public class InputManager : MonoBehaviour
 
     [Tooltip("Mouse Look Script")]
     [SerializeField] 
-    private MouseLook mouseLook;
-
-    [Tooltip("Weapon Controller Script")]
-    [SerializeField]
-    private WeaponController weaponController;
+    private MouseLook mouseLook;    
 
     private PlayerInputs controls;
 
@@ -47,9 +43,12 @@ public class InputManager : MonoBehaviour
         player.Jump.performed += _ => playerMovement.OnJumpPressed();
         player.Mouse.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
 
-        player.Fire.performed += _ => playerShooting.FirePressed();
-        player.FireReleased.performed += _ => playerShooting.FireReleased();
-        player.Reload.performed += _ => playerShooting.OnReloadPressed();
+        if (playerShooting != null)
+        {
+            player.Fire.performed += _ => playerShooting.FirePressed();
+            player.FireReleased.performed += _ => playerShooting.FireReleased();
+            player.Reload.performed += _ => playerShooting.OnReloadPressed();
+        }
 
         // Hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;

@@ -26,6 +26,11 @@ public class QuestionnaireManager : MonoBehaviour
     [SerializeField]
     private Tile resetTile;
 
+    // Pillar
+    [Tooltip("Pillar. Any pillar will do. Is only required for the energy pillar puzzle.")]
+    [SerializeField]
+    private EnergyPillar pillar;
+
     // Current level number
     [Tooltip("Current level number")]
     [SerializeField]
@@ -74,10 +79,19 @@ public class QuestionnaireManager : MonoBehaviour
         tw.Close();
 
         tw = new StreamWriter("player_data.csv", true);
-        if (currentLevel == "1") 
-            tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";_");
-        else
-            tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_" + ";" + resetTile.GetTotalResets());
+        switch (currentLevel)
+        {
+            case "1":
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";_");
+                break;
+            case "2":
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_" + ";" + resetTile.GetTotalResets());
+                break;
+            case "3":
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets());
+                break;
+        }
+
         tw.Close();
     }
 

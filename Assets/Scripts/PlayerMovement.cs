@@ -19,10 +19,10 @@ public class PlayerMovement : MonoBehaviour
     private GameObject headbobbingAnchor;
 
     //Character Movement Vertically
-    [SerializeField] float gravity = -10f; //so it will not stay up
+    [SerializeField] float gravity = -9.81f; //so it will not stay up
     Vector3 jumpVelocity = Vector3.zero; //no velocity by default
     [SerializeField] float jumpHeight = 3f;
-    bool isJumping;
+    [SerializeField] bool isJumping;
 
     //Optimize character falling back to the ground
     [SerializeField] LayerMask ground;
@@ -51,10 +51,11 @@ public class PlayerMovement : MonoBehaviour
         float halfHeight = controller.height * 0.5f;
         var bottomPoint = transform.TransformPoint(controller.center - Vector3.up * halfHeight);
         isGrounded = Physics.CheckSphere(bottomPoint, 0.1f, ground);
-        if (isGrounded)
+        /*if (isGrounded)
         {
             jumpVelocity.y = 0f;
-        }
+        }*/
+
         //managing the movement horizontally
         Vector3 movementVelocity = (transform.right * movement.x + transform.forward * movement.y) * movementSpeed;
         controller.Move(movementVelocity * Time.deltaTime);
@@ -62,9 +63,9 @@ public class PlayerMovement : MonoBehaviour
         //managing the movement vertically
         if (isJumping)
         {
-            if (isGrounded)
+            if (!isGrounded)
             {
-                jumpVelocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity); //mathematical equation
+                jumpVelocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity); //mathematical equation for jumping
             }
             isJumping = false;
         }

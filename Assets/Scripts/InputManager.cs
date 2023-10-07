@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] 
     private PlayerMovement playerMovement;
 
-    [Tooltip("Player Σηοοτινγ Script")]
+    [Tooltip("Player Shooting Script")]
     [SerializeField]
     private PlayerShooting playerShooting;
 

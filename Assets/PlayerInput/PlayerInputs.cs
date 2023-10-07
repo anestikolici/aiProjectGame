@@ -289,6 +289,34 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Starting"",
+            ""id"": ""0efd7f87-4b49-4bea-a644-c7b0f43a8773"",
+            ""actions"": [
+                {
+                    ""name"": ""Dance"",
+                    ""type"": ""Button"",
+                    ""id"": ""e39d79ab-7265-4dc0-82b7-c2840df8aae3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""90a36224-d3e2-4cad-97c5-29ac24cf3100"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Dance"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -320,6 +348,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_SprintReleased = m_Player.FindAction("SprintReleased", throwIfNotFound: true);
+        // Starting
+        m_Starting = asset.FindActionMap("Starting", throwIfNotFound: true);
+        m_Starting_Dance = m_Starting.FindAction("Dance", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -479,6 +510,52 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Starting
+    private readonly InputActionMap m_Starting;
+    private List<IStartingActions> m_StartingActionsCallbackInterfaces = new List<IStartingActions>();
+    private readonly InputAction m_Starting_Dance;
+    public struct StartingActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public StartingActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Dance => m_Wrapper.m_Starting_Dance;
+        public InputActionMap Get() { return m_Wrapper.m_Starting; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartingActions set) { return set.Get(); }
+        public void AddCallbacks(IStartingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StartingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StartingActionsCallbackInterfaces.Add(instance);
+            @Dance.started += instance.OnDance;
+            @Dance.performed += instance.OnDance;
+            @Dance.canceled += instance.OnDance;
+        }
+
+        private void UnregisterCallbacks(IStartingActions instance)
+        {
+            @Dance.started -= instance.OnDance;
+            @Dance.performed -= instance.OnDance;
+            @Dance.canceled -= instance.OnDance;
+        }
+
+        public void RemoveCallbacks(IStartingActions instance)
+        {
+            if (m_Wrapper.m_StartingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStartingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StartingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StartingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StartingActions @Starting => new StartingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -498,5 +575,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnSprintReleased(InputAction.CallbackContext context);
+    }
+    public interface IStartingActions
+    {
+        void OnDance(InputAction.CallbackContext context);
     }
 }

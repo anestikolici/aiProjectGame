@@ -267,6 +267,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Starting",
+            "id": "0efd7f87-4b49-4bea-a644-c7b0f43a8773",
+            "actions": [
+                {
+                    "name": "Dance",
+                    "type": "Button",
+                    "id": "e39d79ab-7265-4dc0-82b7-c2840df8aae3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "90a36224-d3e2-4cad-97c5-29ac24cf3100",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Dance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

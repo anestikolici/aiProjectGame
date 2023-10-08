@@ -291,7 +291,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Starting"",
+            ""name"": ""MainMenu"",
             ""id"": ""0efd7f87-4b49-4bea-a644-c7b0f43a8773"",
             ""actions"": [
                 {
@@ -348,9 +348,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_SprintReleased = m_Player.FindAction("SprintReleased", throwIfNotFound: true);
-        // Starting
-        m_Starting = asset.FindActionMap("Starting", throwIfNotFound: true);
-        m_Starting_Dance = m_Starting.FindAction("Dance", throwIfNotFound: true);
+        // MainMenu
+        m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
+        m_MainMenu_Dance = m_MainMenu.FindAction("Dance", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -511,51 +511,51 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // Starting
-    private readonly InputActionMap m_Starting;
-    private List<IStartingActions> m_StartingActionsCallbackInterfaces = new List<IStartingActions>();
-    private readonly InputAction m_Starting_Dance;
-    public struct StartingActions
+    // MainMenu
+    private readonly InputActionMap m_MainMenu;
+    private List<IMainMenuActions> m_MainMenuActionsCallbackInterfaces = new List<IMainMenuActions>();
+    private readonly InputAction m_MainMenu_Dance;
+    public struct MainMenuActions
     {
         private @PlayerInputs m_Wrapper;
-        public StartingActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Dance => m_Wrapper.m_Starting_Dance;
-        public InputActionMap Get() { return m_Wrapper.m_Starting; }
+        public MainMenuActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Dance => m_Wrapper.m_MainMenu_Dance;
+        public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(StartingActions set) { return set.Get(); }
-        public void AddCallbacks(IStartingActions instance)
+        public static implicit operator InputActionMap(MainMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IMainMenuActions instance)
         {
-            if (instance == null || m_Wrapper.m_StartingActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_StartingActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_MainMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MainMenuActionsCallbackInterfaces.Add(instance);
             @Dance.started += instance.OnDance;
             @Dance.performed += instance.OnDance;
             @Dance.canceled += instance.OnDance;
         }
 
-        private void UnregisterCallbacks(IStartingActions instance)
+        private void UnregisterCallbacks(IMainMenuActions instance)
         {
             @Dance.started -= instance.OnDance;
             @Dance.performed -= instance.OnDance;
             @Dance.canceled -= instance.OnDance;
         }
 
-        public void RemoveCallbacks(IStartingActions instance)
+        public void RemoveCallbacks(IMainMenuActions instance)
         {
-            if (m_Wrapper.m_StartingActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MainMenuActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IStartingActions instance)
+        public void SetCallbacks(IMainMenuActions instance)
         {
-            foreach (var item in m_Wrapper.m_StartingActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MainMenuActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_StartingActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MainMenuActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public StartingActions @Starting => new StartingActions(this);
+    public MainMenuActions @MainMenu => new MainMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -576,7 +576,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnSprintReleased(InputAction.CallbackContext context);
     }
-    public interface IStartingActions
+    public interface IMainMenuActions
     {
         void OnDance(InputAction.CallbackContext context);
     }

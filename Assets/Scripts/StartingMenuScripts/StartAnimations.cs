@@ -6,14 +6,24 @@ using UnityEngine.InputSystem;
 
 public class StartAnimations : MonoBehaviour
 {
-   
+   private PlayerInputs mainMenuActions;
+   private PlayerInputs.MainMenuActions _dancingActions;
+   [SerializeField] GameObject player;
 
-    public GameObject player;
+   void Awake()
+   {
+    mainMenuActions = new PlayerInputs();
+    _dancingActions = mainMenuActions.MainMenu;
+    _dancingActions.Enable();
+    _dancingActions.Dance.performed += DancePerformed;
+
+   }
   
-    // Update is called once per frame
-    public void Dance(InputAction.CallbackContext context)
+   
+    public void DancePerformed(InputAction.CallbackContext context)
     {
-     player.GetComponent<Animator>().Play("Dance");
+     player.GetComponent<Animator>().Play("Samba Dancing");
+     Debug.Log("Dance Performed" + context);
     }
 
    

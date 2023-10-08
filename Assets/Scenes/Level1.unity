@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 871ff6d0d910cd947bf9cac9c6b34c2f, type: 2}
   m_LightingSettings: {fileID: 980765596}
 --- !u!196 &4
 NavMeshSettings:
@@ -1085,8 +1085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundClipcleared: {fileID: 8300000, guid: 4a68ef3fc4ddcfe40a25d10863c15d09, type: 3}
-  messageText: {fileID: 1207737458}
-  messageContent: Puzzle cleared! The door has opened
 --- !u!82 &133047404
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10751,6 +10749,7 @@ MonoBehaviour:
   gameEnded: {fileID: 1843209943}
   playerShooting: {fileID: 1348168382}
   resetTile: {fileID: 0}
+  pillar: {fileID: 0}
   currentLevel: 1
   questionAnswers: []
 --- !u!114 &1173263057
@@ -12271,6 +12270,7 @@ MonoBehaviour:
   headbobbingAnchor: {fileID: 3431472584623622398}
   gravity: -10
   jumpHeight: 2
+  isJumping: 0
   ground:
     serializedVersion: 2
     m_Bits: 0

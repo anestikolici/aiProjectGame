@@ -43,6 +43,14 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject goalPanel;  
 
+    [Tooltip("Ammo Count")]
+    [SerializeField]
+    private GameObject ammoCountPanel;
+
+    [Tooltip("Pause")]
+    [SerializeField]
+    private GameObject pausePanel;
+
     // Start is called before the first frame update
     public void StartButton()
     {
@@ -77,18 +85,30 @@ public class MenuLogic : MonoBehaviour
     {
         mainMenu.SetActive(false);
         controlsMenu.SetActive(true);
+        ammoCountPanel.SetActive(false);
+        pausePanel.SetActive(false);
+
     }
 
     public void BackButton()
     {
         controlsMenu.SetActive(false);
         goalPanel.SetActive(false);
-        mainMenu.SetActive(true);     
+        mainMenu.SetActive(true);   
+        ammoCountPanel.SetActive(true);
+        pausePanel.SetActive(true);  
     }
 
     public void GoalButton()
     {
         mainMenu.SetActive(false);
         goalPanel.SetActive(true);
+        ammoCountPanel.SetActive(false);
+        pausePanel.SetActive(false);
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }

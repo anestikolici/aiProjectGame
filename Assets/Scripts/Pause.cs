@@ -21,6 +21,10 @@ public class Pause : MonoBehaviour
     [SerializeField]
     private MouseLook mouseLook;
 
+    [Tooltip("Crosshair")]
+    [SerializeField]
+    private GameObject crosshair;
+
 
 
     private PlayerInputs mainMenuActions;
@@ -46,8 +50,10 @@ public class Pause : MonoBehaviour
         playButton.SetActive(false);
         resumeButton.SetActive(true);
         mouseLook.DisableMouseLook();
-        //playerMovement.enabled = false;
-        //mouseLook.invertY = false;
+
+        crosshair.SetActive(false); //hide the crosshair
+
+        
         
        
     }

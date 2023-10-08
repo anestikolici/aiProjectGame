@@ -51,6 +51,10 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject pausePanel;
 
+    [Tooltip("Crosshair")]
+    [SerializeField]
+    private GameObject crosshair;
+
     // Start is called before the first frame update
     public void StartButton()
     {
@@ -97,6 +101,8 @@ public class MenuLogic : MonoBehaviour
         mainMenu.SetActive(true);   
         ammoCountPanel.SetActive(true);
         pausePanel.SetActive(true); 
+        crosshair.SetActive(true);
+        crosshair.SetActive(false);
          
     }
 
@@ -117,5 +123,7 @@ public class MenuLogic : MonoBehaviour
     {
         mainMenu.SetActive(false);
         mouseLook.EnableMouseLook();
+        crosshair.SetActive(true);
+
     }
 }

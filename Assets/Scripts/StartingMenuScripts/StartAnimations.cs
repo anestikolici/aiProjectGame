@@ -23,7 +23,7 @@ public class StartAnimations : MonoBehaviour
     public void DancePerformed(InputAction.CallbackContext context)
     {
      player.GetComponent<Animator>().Play("Samba Dancing");
-     Debug.Log("Dance Performed" + context);
+     //Debug.Log("Dance Performed" + context);
     }
 
    

@@ -1302,7 +1302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &126178873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 998340933}
         m_TargetAssemblyTypeName: MenuLogic, Assembly-CSharp
-        m_MethodName: StartButton
+        m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1429,6 +1429,7 @@ GameObject:
   - component: {fileID: 133047401}
   - component: {fileID: 133047403}
   - component: {fileID: 133047404}
+  - component: {fileID: 133047405}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -1582,6 +1583,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &133047405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133047400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6599852bca6690543894e7e3c5d47563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 998340932}
+  playButton: {fileID: 1033212038}
+  resumeButton: {fileID: 126178872}
+  mouseLook: {fileID: 1348168381}
 --- !u!1 &147804868
 GameObject:
   m_ObjectHideFlags: 0
@@ -7568,7 +7585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

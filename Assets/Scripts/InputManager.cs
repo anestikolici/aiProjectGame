@@ -29,7 +29,7 @@ public class InputManager : MonoBehaviour
         mouseLook.ReceiveInput(mouseInput);
     }
 
-    void OnDisable()
+    public void OnDisable()
     {
         controls.Disable();
     }

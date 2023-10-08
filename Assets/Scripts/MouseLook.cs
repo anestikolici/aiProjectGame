@@ -45,8 +45,10 @@ public class MouseLook : MonoBehaviour
         // Allow mouse input
         canLook = true;
     }
-
-
+    public void DisableMouseLook()
+    {
+        canLook = false;
+    }
     // Update is called once per frame
     void Update()
     {

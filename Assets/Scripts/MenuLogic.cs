@@ -96,7 +96,8 @@ public class MenuLogic : MonoBehaviour
         goalPanel.SetActive(false);
         mainMenu.SetActive(true);   
         ammoCountPanel.SetActive(true);
-        pausePanel.SetActive(true);  
+        pausePanel.SetActive(true); 
+         
     }
 
     public void GoalButton()
@@ -110,5 +111,11 @@ public class MenuLogic : MonoBehaviour
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    public void ResumeButton()
+    {
+        mainMenu.SetActive(false);
+        mouseLook.EnableMouseLook();
     }
 }

@@ -31,6 +31,11 @@ public class TilePuzzleLogic : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
+    // Player ammo text
+    [Tooltip("Ammo text")]
+    [SerializeField]
+    private TextMeshProUGUI ammoText;
+
     // Array of all tiles
     private GameObject[] tiles;
 
@@ -64,6 +69,7 @@ public class TilePuzzleLogic : MonoBehaviour
             questionnaireQuestions[0].SetActive(true);   
             weapon.SetActive(true);
             playerShooting.SetAmmo(30);
+            ammoText.text = ("Ammo: 30");
             playerShooting.SetIsSolved(true);
         }
         return isSolved;

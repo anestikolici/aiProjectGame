@@ -75,20 +75,20 @@ public class QuestionnaireManager : MonoBehaviour
     public void SaveToCSV()
     {
         TextWriter tw = new StreamWriter("player_data.csv", false);
-        tw.WriteLine("Level; Frustration; Difficulty; Bullets Shot; Number of Resets");
+        tw.WriteLine("Level; Valence; Arousal; Dominance; Bullets Shot; Number of Resets");
         tw.Close();
 
         tw = new StreamWriter("player_data.csv", true);
         switch (currentLevel)
         {
             case "1":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";_");
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_");
                 break;
             case "2":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_" + ";" + resetTile.GetTotalResets());
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;_" + ";" + resetTile.GetTotalResets());
                 break;
             case "3":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets());
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets());
                 break;
         }
 

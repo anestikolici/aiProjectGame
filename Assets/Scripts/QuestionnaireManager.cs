@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestionnaireManager : MonoBehaviour
 {
+
     #region - Serialize Fields -
 
     // List of questionnaire question objects
@@ -35,6 +36,12 @@ public class QuestionnaireManager : MonoBehaviour
     [Tooltip("Current level number")]
     [SerializeField]
     private string currentLevel = "1";
+
+    // timer
+    [Tooltip("Reference to the Timer script")]
+    [SerializeField]
+    private Timer timer;
+
 
     #endregion
 
@@ -75,20 +82,20 @@ public class QuestionnaireManager : MonoBehaviour
     public void SaveToCSV()
     {
         TextWriter tw = new StreamWriter("player_data.csv", false);
-        tw.WriteLine("Level; Valence; Arousal; Dominance; Bullets Shot; Number of Resets");
+        tw.WriteLine("Level; Valence; Arousal; Dominance; Bullets Shot; Number of Resets; Elapsed Time");
         tw.Close();
 
         tw = new StreamWriter("player_data.csv", true);
         switch (currentLevel)
         {
             case "1":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_");
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_; " + timer.ElapsedTime);
                 break;
             case "2":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;_" + ";" + resetTile.GetTotalResets());
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;_" + ";" + resetTile.GetTotalResets() + ";" + timer.ElapsedTime);
                 break;
             case "3":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets());
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets() + ";" + + timer.ElapsedTime);
                 break;
         }
 

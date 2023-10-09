@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MenuLogic : MonoBehaviour
 {
+     public Timer timer;
     // Input Manager script
     [Tooltip("Input Manager Script")]
     [SerializeField]
@@ -59,6 +60,12 @@ public class MenuLogic : MonoBehaviour
     public void StartButton()
     {
         StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0f), Quaternion.identity, 2));
+
+        // start timer after the start button is pressed 
+         if (timer != null)
+        {
+            timer.StartTimer();
+        }
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)

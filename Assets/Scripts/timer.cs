@@ -52,4 +52,9 @@ public class Timer : MonoBehaviour
     {
         elapsedTime = 0f;
     }
+
+    public void PauseTimer()
+    {
+        isTimerRunning = false;
+    }
 }

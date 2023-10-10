@@ -26,6 +26,11 @@ public class logicFunctions : MonoBehaviour
     [SerializeField]
     private AudioPlayerCleared audioPlayerCleared;
 
+    [Tooltip("PlayerShooting script")]
+    [SerializeField]
+    private PlayerShooting playerShooting;
+
+
     public Dictionary<string, int> PillarList
     {
         get { return pillarList; }
@@ -80,7 +85,7 @@ public class logicFunctions : MonoBehaviour
 
                 pillarList["Pillar1"] = IncrCheck(incr);
                 pillarList["Pillar2"] = IncrCheck(next);
-                Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   " + pillarList["Pillar3"]);
+                //Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   " + pillarList["Pillar3"]);
                 break;
             case "Pillar2":
                 incr = pillarList["Pillar2"] + 1;
@@ -92,7 +97,7 @@ public class logicFunctions : MonoBehaviour
                 pillarList["Pillar1"] = IncrCheck(previous);
                 pillarList["Pillar3"] = IncrCheck(next);
 
-                Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   " + pillarList["Pillar3"]);
+                //Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   " + pillarList["Pillar3"]);
                 break;
             case "Pillar3":
                 incr = pillarList["Pillar3"] + 1;
@@ -101,7 +106,7 @@ public class logicFunctions : MonoBehaviour
                 pillarList["Pillar3"] = IncrCheck(incr);
                 pillarList["Pillar2"] = IncrCheck(previous);
 
-                Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   "+ pillarList["Pillar3"]);
+                //Debug.Log(pillarList["Pillar1"] + "   " + pillarList["Pillar2"] + "   "+ pillarList["Pillar3"]);
                 break;
         }
 
@@ -132,15 +137,16 @@ public class logicFunctions : MonoBehaviour
                 count++;
                 if (count == 3)
                 {
-                    //put door opening
                     doorLight.color = Color.green;
                     door.GetComponent<DoorRotation>().enabled = true;
                     isSolved = true;
                     messageText.text = messageContent;
                     messageText.enabled = true;
                     audioPlayerCleared.PlayAudio();
-                    Debug.Log("SOLVED");
+                    //Debug.Log("SOLVED");
                     questionnaireQuestions[0].SetActive(true);
+                    playerShooting.enabled = false;
+
                 }
 
             }

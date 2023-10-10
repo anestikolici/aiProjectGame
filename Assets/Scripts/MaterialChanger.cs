@@ -54,13 +54,13 @@ public class MaterialChanger : MonoBehaviour
             cube.GetComponent<MeshRenderer>().sharedMaterial = lightOff;
             
         }
-        Debug.Log("check");
+        //Debug.Log("check");
 
         for (int i=0;i<3;i++)
         {
             if (PillarList["Pillar1"]<=i) { continue; }
 
-            print(PillarList["Pillar1"]);
+            //print(PillarList["Pillar1"]);
             
             if (cubes_1[i].GetComponent<MeshRenderer>().sharedMaterial == lightOff)
             {
@@ -88,11 +88,11 @@ public class MaterialChanger : MonoBehaviour
         {
             if (PillarList["Pillar2"] <= i) { continue; }
 
-            print(PillarList["Pillar2"]);
+            //print(PillarList["Pillar2"]);
 
             cubes_2[i].GetComponent<MeshRenderer>().sharedMaterial = lightOn;
 
-            Debug.Log("test pillar 2");
+            //Debug.Log("test pillar 2");
 
         }
 
@@ -109,7 +109,7 @@ public class MaterialChanger : MonoBehaviour
         {
             if (PillarList["Pillar3"] <= i) { continue; }
 
-            print(PillarList["Pillar3"]);
+            //print(PillarList["Pillar3"]);
 
             cubes_3[i].GetComponent<MeshRenderer>().sharedMaterial = lightOn;
 

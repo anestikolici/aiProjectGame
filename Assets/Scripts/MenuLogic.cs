@@ -56,6 +56,10 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
+    [Tooltip("Input Manager script")]
+    [SerializeField]
+    private Timer _timer;
+
     // Start is called before the first frame update
     public void StartButton()
     {
@@ -131,6 +135,9 @@ public class MenuLogic : MonoBehaviour
         mainMenu.SetActive(false);
         mouseLook.EnableMouseLook();
         crosshair.SetActive(true);
+        inputManager.EnablePlayerInput();
+        _timer.StartTimer();
+
 
     }
 }

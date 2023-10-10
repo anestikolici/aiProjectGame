@@ -145,7 +145,7 @@ public class logicFunctions : MonoBehaviour
                     audioPlayerCleared.PlayAudio();
                     //Debug.Log("SOLVED");
                     questionnaireQuestions[0].SetActive(true);
-                    playerShooting.enabled = false;
+                    //playerShooting.enabled = false;
 
                 }
 

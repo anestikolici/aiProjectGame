@@ -8,6 +8,10 @@ public class DoorRotation : MonoBehaviour
     public int Speed;
 	private bool isOpen;
 	
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
 	// Update is called once per frame
 	void Update ()
 	
@@ -21,7 +25,7 @@ public class DoorRotation : MonoBehaviour
     if(other.name == "Player" && isOpen)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
-		Debug.Log("Collision");
+		
     }
    }
 }

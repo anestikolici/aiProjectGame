@@ -1250,14 +1250,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLight: {fileID: 1392439259}
   door: {fileID: 1779797888}
-  messageText: {fileID: 0}
+  messageText: {fileID: 6560915751409313750}
   messageContent: Puzzle cleared! Answer the questions to go through the door.
   questionnaireQuestions:
   - {fileID: 2110738}
   audioPlayerCleared: {fileID: 133047403}
   weapon: {fileID: 5091220258345582271}
   playerShooting: {fileID: 1348168385}
-  ammoText: {fileID: 0}
+  ammoText: {fileID: 940596359175067083}
 --- !u!114 &133047406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,12 +3581,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405253701}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e950513b9c6d734e8130770598861f3, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9398,7 +9398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348168376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5f9cd33861db4945a0ba1f4b27da7ac, type: 3}
   m_Name: 
@@ -9413,7 +9413,7 @@ MonoBehaviour:
   kickback: 0.01
   laserAudio: {fileID: 405253703}
   reloadAudio: {fileID: 1442850771}
-  ammoText: {fileID: 0}
+  ammoText: {fileID: 940596359175067083}
   playerMovement: {fileID: 1348168379}
 --- !u!43 &1361612872
 Mesh:
@@ -10270,12 +10270,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442850769}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f268095f67575b44b10ea19a4482b2c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13512,7 +13512,7 @@ MonoBehaviour:
   adjacentTiles: []
   lightOff: {fileID: 2100000, guid: bdb7af690168c924bad72a2d2778f057, type: 2}
   lightOn: {fileID: 2100000, guid: 2c29f6d268b0beb4d97d0ae292365b23, type: 2}
-  tilePuzzleLogic: {fileID: 0}
+  tilePuzzleLogic: {fileID: 133047405}
 --- !u!1 &2000145735
 GameObject:
   m_ObjectHideFlags: 0

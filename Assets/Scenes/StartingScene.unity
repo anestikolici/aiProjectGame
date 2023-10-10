@@ -1013,6 +1013,7 @@ MonoBehaviour:
   controlsMenu: {fileID: 631203047}
   goalPanel: {fileID: 1837120806}
   player: {fileID: 1221684860}
+  startAnimations: {fileID: 1909556711}
 --- !u!1 &886128040
 GameObject:
   m_ObjectHideFlags: 0

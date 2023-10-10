@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static PlayerInputs;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -23,7 +24,12 @@ public class ButtonManager : MonoBehaviour
     //Player
     [Tooltip("Player")]
     [SerializeField]
-    private GameObject player; 
+    private GameObject player;
+
+    // StartAnimations script
+    [Tooltip("StartAnimations script")]
+    [SerializeField]
+    private StartAnimations startAnimations;
 
 
     void Start()
@@ -38,6 +44,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void OnStartButton()
     {
+        startAnimations.DisableDance();
         SceneManager.LoadScene(1);
     }
 

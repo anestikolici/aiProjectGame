@@ -1496,8 +1496,7 @@ Transform:
   m_LocalPosition: {x: 13.237613, y: -0.7752688, z: 8.07582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1672300772}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &133047404
@@ -4639,6 +4638,10 @@ PrefabInstance:
     - target: {fileID: 1910880371667356, guid: fb72cc81254f07241b07fcc6986eb510, type: 3}
       propertyPath: m_Name
       value: 'RevolvingDoor '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910880371667356, guid: fb72cc81254f07241b07fcc6986eb510, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4167152848334516, guid: fb72cc81254f07241b07fcc6986eb510, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21026,37 +21029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc71c07fe29bb542be7ecb9bd182a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1672300771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1672300772}
-  m_Layer: 0
-  m_Name: AudioPlayerCleared
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1672300772
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672300771}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.1423864, y: 2.975269, z: 1.7041798}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 133047402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1687548485
 Mesh:
   m_ObjectHideFlags: 0
@@ -31623,7 +31595,6 @@ MonoBehaviour:
   ammoCountPanel: {fileID: 5096043191840977863}
   pausePanel: {fileID: 5626526963769806573}
   crosshair: {fileID: 0}
-  _timer: {fileID: 0}
 --- !u!114 &2713889429643849979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33437,7 +33408,6 @@ MonoBehaviour:
   ammoCountPanel: {fileID: 5096043191840977863}
   pausePanel: {fileID: 5626526963769806573}
   crosshair: {fileID: 8512856833091187459}
-  _timer: {fileID: 50580418}
 --- !u!1 &5626526963769806573
 GameObject:
   m_ObjectHideFlags: 0

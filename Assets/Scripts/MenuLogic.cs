@@ -56,7 +56,13 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
-   // Start is called before the first frame update
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    // Start is called before the first frame update
     public void StartButton()
     {
         StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0f), Quaternion.identity, 2));

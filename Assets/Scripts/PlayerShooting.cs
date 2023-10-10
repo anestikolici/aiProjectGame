@@ -122,7 +122,7 @@ public class PlayerShooting : MonoBehaviour
     /// Player shooting
     /// </summary>
     private void Shooting()
-    {
+    {;
         if (isShooting & currentAmmo > 0)
         {
             if (Time.time > lastFired + fireRate)

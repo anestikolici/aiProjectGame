@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelX (Tiles).unity
     guid: dd8caedb10e20804d82f95e7c3e768f2
+  - enabled: 1
+    path: Assets/Scenes/LevelX (Energy Pillar Alignment).unity
+    guid: ea51c715993b1154a8b29d4493160705
   m_configObjects: {}

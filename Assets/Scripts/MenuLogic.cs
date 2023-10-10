@@ -56,11 +56,7 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
-    [Tooltip("Input Manager script")]
-    [SerializeField]
-    private Timer _timer;
-
-    // Start is called before the first frame update
+   // Start is called before the first frame update
     public void StartButton()
     {
         StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0f), Quaternion.identity, 2));
@@ -136,7 +132,7 @@ public class MenuLogic : MonoBehaviour
         mouseLook.EnableMouseLook();
         crosshair.SetActive(true);
         inputManager.EnablePlayerInput();
-        _timer.StartTimer();
+        timer.StartTimer();
 
 
     }

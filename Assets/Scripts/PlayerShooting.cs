@@ -10,11 +10,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
 
-    // Weapon anchor GameObject for headbobbing
-    [Tooltip("Weapon anchor GameObject for headbobbing")]
-    [SerializeField]
-    private GameObject headbobbingAnchor;
-
+    
     // Weapon ammo
     [Tooltip("Weapon ammo")]
     [SerializeField]
@@ -63,7 +59,7 @@ public class PlayerShooting : MonoBehaviour
     // Player movement script
     [Tooltip("Player Movement Script")]
     [SerializeField]
-    private PlayerMovement playerMovement;
+    private PlayerMovement1 playerMovement;
 
     #endregion
 

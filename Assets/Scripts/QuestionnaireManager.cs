@@ -92,7 +92,7 @@ public class QuestionnaireManager : MonoBehaviour
                 tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_; " + timer.ElapsedTime);
                 break;
             case "2":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;_" + ";" + resetTile.GetTotalResets() + ";" + timer.ElapsedTime);
+                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";_" + ";" + resetTile.GetTotalResets() + ";" + timer.ElapsedTime);
                 break;
             case "3":
                 tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets() + ";" + + timer.ElapsedTime);

@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &32509900
 BoxCollider:
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &126526962
 BoxCollider:
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &148179796
 BoxCollider:
@@ -2045,7 +2045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &161918240
 BoxCollider:
@@ -2413,7 +2413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &202417261
 BoxCollider:
@@ -3205,7 +3205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &342622477
 BoxCollider:
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &342734484
 BoxCollider:
@@ -7767,7 +7767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &785823399
 BoxCollider:
@@ -8229,7 +8229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &801375342
 BoxCollider:
@@ -8977,7 +8977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &865023156
 BoxCollider:
@@ -9840,7 +9840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &881565680
 BoxCollider:
@@ -11349,7 +11349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &984244108
 BoxCollider:
@@ -11717,7 +11717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &984270807
 BoxCollider:
@@ -12213,7 +12213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1003376967
 BoxCollider:
@@ -13400,7 +13400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1083058381
 BoxCollider:
@@ -14717,7 +14717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1180128239
 BoxCollider:
@@ -15085,7 +15085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1184360867
 BoxCollider:
@@ -15618,7 +15618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1196982924
 BoxCollider:
@@ -15986,7 +15986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1214713228
 BoxCollider:
@@ -16722,7 +16722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1280759453
 BoxCollider:
@@ -18086,7 +18086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1542192538
 BoxCollider:
@@ -18454,7 +18454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1547032056
 BoxCollider:
@@ -18822,7 +18822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1553520856
 BoxCollider:
@@ -19250,7 +19250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1571616857
 BoxCollider:
@@ -21613,7 +21613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1805480560
 BoxCollider:
@@ -23614,7 +23614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1881424308
 BoxCollider:
@@ -24515,7 +24515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1936447906
 BoxCollider:
@@ -24883,7 +24883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1949083770
 BoxCollider:
@@ -25251,7 +25251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &1983625241
 BoxCollider:
@@ -25987,7 +25987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &2011748280
 BoxCollider:
@@ -26685,7 +26685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &2066276184
 BoxCollider:
@@ -27053,7 +27053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &2080303232
 BoxCollider:
@@ -27586,7 +27586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionnaireManager: {fileID: 1173263056}
-  player: {fileID: 0}
+  player: {fileID: 1348168376}
   gun: {fileID: 0}
 --- !u!65 &2088992059
 BoxCollider:

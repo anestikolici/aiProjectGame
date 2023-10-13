@@ -14,15 +14,16 @@ public class PlayerMovement1 : MonoBehaviour
     float airAccel = 20f;
 
     //Jump
-    float jumpUpSpeed = 9.2f;
-    float dashSpeed = 6f;
+    float jumpUpSpeed = 4f;
+    float dashSpeed = 0f;
 
     //Wall
     float wallSpeed = 10f;
     float wallClimbSpeed = 4f;
     float wallAccel = 20f;
-    float wallRunTime = 3f;
-    float wallStickiness = 20f;
+    //how much time can you run on the wall
+    float wallRunTime = 1f;
+    float wallStickiness = 2f;
     float wallStickDistance = 1f;
     float wallFloorBarrier = 40f;
     float wallBanTime = 4f;
@@ -34,7 +35,7 @@ public class PlayerMovement1 : MonoBehaviour
     bool canDJump = true;
     float wallBan = 0f;
     float wrTimer = 0f;
-    float wallStickTimer = 0f;
+    float wallStickTimer = 10f;
 
     //States
     bool running;

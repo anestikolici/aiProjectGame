@@ -4951,10 +4951,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1862640722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -7.5, y: -0.5}
-  m_SizeDelta: {x: -35, y: -13}
+  m_SizeDelta: {x: 125, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &305856150
 GameObject:
@@ -9926,7 +9926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &593882330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26650,8 +26650,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 460677653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.42539573}
-  m_AnchorMax: {x: 1, y: 0.5258459}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26986,7 +26986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 4985824341072862551}
-  headbobbingAnchor: {fileID: 3431472584623622398}
   ammo: 30
   laser: {fileID: 136330, guid: 0fded39f724202a498eade9f76bc5ef3, type: 3}
   fireRate: 0.2
@@ -26996,7 +26995,7 @@ MonoBehaviour:
   laserAudio: {fileID: 1527302714}
   reloadAudio: {fileID: 994927511}
   ammoText: {fileID: 4058765816318156530}
-  playerMovement: {fileID: 1348168379}
+  playerMovement: {fileID: 0}
 --- !u!95 &1348168383
 Animator:
   serializedVersion: 5
@@ -33327,10 +33326,10 @@ RectTransform:
   - {fileID: 344346602}
   m_Father: {fileID: 593882330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1820, y: 982}
+  m_SizeDelta: {x: 1920, y: 1082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697421118
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
 
     void Start()
     {
-        recoilComponent = GameObject.Find("Rifle AK").GetComponent<ProceduralRecoil>();
+        recoilComponent = GameObject.Find("SciFiGunLightRad").GetComponent<ProceduralRecoil>();
     }
 
     

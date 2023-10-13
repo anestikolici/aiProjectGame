@@ -13,6 +13,7 @@ TagManager:
   - lights1
   - lights3
   - Tile
+  - WeaponCamera
   layers:
   - Default
   - TransparentFX

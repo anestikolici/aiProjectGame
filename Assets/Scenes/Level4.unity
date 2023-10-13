@@ -7011,6 +7011,18 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 459703581}
   bulletPrefab: {fileID: 136330, guid: f27c44873df325a4589d2983d12e60b1, type: 3}
   bulletSpeed: 30
+--- !u!114 &862784664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862784660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e39b93825e53542bb7f7c06dc4ad4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865023153
 GameObject:
   m_ObjectHideFlags: 0
@@ -8307,7 +8319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528627702896536556, guid: f243632dc924abc47a2f1ec2553133db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.21700005
+      value: 0.142
       objectReference: {fileID: 0}
     - target: {fileID: 2528627702896536556, guid: f243632dc924abc47a2f1ec2553133db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8363,6 +8375,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2908390582112776534, guid: f243632dc924abc47a2f1ec2553133db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 862784663}
+    - targetCorrespondingSourceObject: {fileID: 2908390582112776534, guid: f243632dc924abc47a2f1ec2553133db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 862784664}
   m_SourcePrefab: {fileID: 100100000, guid: f243632dc924abc47a2f1ec2553133db, type: 3}
 --- !u!1 &895210746 stripped
 GameObject:
@@ -15762,7 +15777,7 @@ GameObject:
   - component: {fileID: 1775976096}
   m_Layer: 0
   m_Name: WeaponCamera
-  m_TagString: Untagged
+  m_TagString: WeaponCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17743,8 +17758,8 @@ Transform:
   m_GameObject: {fileID: 1872947646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.88, y: -0.00000023841858, z: 1.9951938}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -21.3, y: 3.9, z: -22.485}
+  m_LocalScale: {x: 5.7304826, y: 3.552954, z: 5.7304826}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

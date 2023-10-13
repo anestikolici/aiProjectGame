@@ -6,7 +6,7 @@ public class PlayerMovement1 : MonoBehaviour
 {
     //Ground
     float groundSpeed = 4f;
-    float runSpeed = 6f;
+    float runSpeed = 8f;
     float grAccel = 20f;
 
     //Air
@@ -14,15 +14,15 @@ public class PlayerMovement1 : MonoBehaviour
     float airAccel = 20f;
 
     //Jump
-    float jumpUpSpeed = 4f;
-    float dashSpeed = 0f;
+    float jumpUpSpeed = 8f;
+    float dashSpeed = 4f;
 
     //Wall
     float wallSpeed = 10f;
     float wallClimbSpeed = 4f;
     float wallAccel = 20f;
     //how much time can you run on the wall
-    float wallRunTime = 1f;
+    float wallRunTime = 2f;
     float wallStickiness = 2f;
     float wallStickDistance = 1f;
     float wallFloorBarrier = 40f;

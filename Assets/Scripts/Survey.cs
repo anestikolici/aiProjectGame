@@ -1,9 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 
 public class Survey : MonoBehaviour
 {
+    private string csvFilePath = "player_pregame.csv"; 
+
+    string[] questionAnswers = new string[3] { null, null, null };
+
     public GameObject popupPanel;
     public GameObject[] infoPages;
     public Toggle conditionToggle;
@@ -15,8 +23,13 @@ public class Survey : MonoBehaviour
     public TMP_InputField inputField1;
     public TMP_InputField inputField2;
     public TMP_InputField inputField3;
-    public TMP_Dropdown dropdown;
+    public TMP_Dropdown dropdown1;
+    public TMP_Dropdown dropdown2;
     public GameObject PopupAlert;
+
+     public ToggleGroup toggleGroup1;
+     public ToggleGroup toggleGroup2;
+     public ToggleGroup toggleGroup3;
 
     void Start()
     {
@@ -60,6 +73,8 @@ public class Survey : MonoBehaviour
         {
             return; // stop if val fail
         }
+        
+        SaveSelectedToggleName();
 
         // hide current page and show the next one
         infoPages[currentPage].SetActive(false);
@@ -121,4 +136,53 @@ public class Survey : MonoBehaviour
         PopupAlert.SetActive(false);
     }
 
+    public void SaveToCSV()
+    {
+        // Open or create the CSV file
+        StreamWriter sw = new StreamWriter(csvFilePath, true);
+
+        // Write header if the file is empty (assuming the columns are fixed)
+        if (sw.BaseStream.Length == 0)
+        {
+            sw.WriteLine("Age;Gender;Education;ExperienceGames;ExperiencePuzzles;Valence;Arousal;Dominance");
+        }
+
+        // Write the data to the CSV file
+        Toggle theActiveToggle = toggleGroup1.ActiveToggles().FirstOrDefault();
+        string line = $"{inputField1.text};{inputField2.text};{inputField3.text};{dropdown1.value};{dropdown2.value};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};";
+        sw.WriteLine(line);
+
+        // Close the file
+        sw.Close();
+    }
+    private void SaveSelectedToggleName()
+    {
+        // determine active toggle group based on the current page
+        ToggleGroup activeToggleGroup = currentPage == 5 ? toggleGroup1 :
+                                        currentPage == 6 ? toggleGroup2 :
+                                        currentPage == 7 ? toggleGroup3 : null;
+
+        if (activeToggleGroup != null)
+        {
+            // Get the selected toggle from the toggle group
+            Toggle selectedToggle = activeToggleGroup.ActiveToggles().FirstOrDefault();
+
+            if (selectedToggle != null)
+            {
+                if (currentPage == 5)
+                {
+                    questionAnswers[0] = selectedToggle.gameObject.name;
+
+                }
+                else if (currentPage == 6)
+                {
+                    questionAnswers[1] = selectedToggle.gameObject.name;
+                }
+                else if (currentPage == 7)
+                {
+                    questionAnswers[2] = selectedToggle.gameObject.name;
+                }
+            }
+        }
+    }
 }

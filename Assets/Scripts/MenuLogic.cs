@@ -40,6 +40,11 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject controlsMenu;
 
+    // Options Menu Panel
+    [Tooltip("Options Menu Panel")]
+    [SerializeField]
+    private GameObject optionsMenu;
+
     [Tooltip("Game Goal Panel")]
     [SerializeField]
     private GameObject goalPanel;  
@@ -93,23 +98,33 @@ public class MenuLogic : MonoBehaviour
         inputManager.EnablePlayerInput();
         playerMovement.SetCameraOriginalPos();
         mouseLook.EnableMouseLook();
+        crosshair.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     public void ControlsButton()
     {
         mainMenu.SetActive(false);
         controlsMenu.SetActive(true);
         ammoCountPanel.SetActive(false);
         pausePanel.SetActive(false);
+    }
 
+    public void OptionsButton()
+    {
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+        ammoCountPanel.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     public void BackButton()
     {
         controlsMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         goalPanel.SetActive(false);
         mainMenu.SetActive(true);   
         ammoCountPanel.SetActive(true);
@@ -134,12 +149,12 @@ public class MenuLogic : MonoBehaviour
 
     public void ResumeButton()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         mainMenu.SetActive(false);
         mouseLook.EnableMouseLook();
         crosshair.SetActive(true);
         inputManager.EnablePlayerInput();
         timer.StartTimer();
-
-
     }
 }

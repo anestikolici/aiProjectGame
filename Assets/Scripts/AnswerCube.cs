@@ -6,11 +6,6 @@ public class AnswerCube : MonoBehaviour
     [Tooltip("QuestionnaireManager script")]
     [SerializeField]
     private QuestionnaireManager questionnaireManager;
-    [Tooltip("Player")]
-    [SerializeField] GameObject player;
-
-    [Tooltip("Gun")]
-    [SerializeField] GameObject gun;
 
     /// <summary>
     /// Called when this object collides with another collider
@@ -21,8 +16,7 @@ public class AnswerCube : MonoBehaviour
         if (other.CompareTag("laser"))
         { 
             questionnaireManager.questionAnswers.Add(gameObject.name);
-            questionnaireManager.NextQuestion();
-           
+            questionnaireManager.NextQuestion();          
         }
     }
 }

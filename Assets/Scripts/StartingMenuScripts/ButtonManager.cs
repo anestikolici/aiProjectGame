@@ -16,10 +16,15 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject controlsMenu;
 
+    // Options Menu Panel
+    [Tooltip("Options Menu Panel")]
+    [SerializeField]
+    private GameObject optionsMenu;
+
     //Game Goal Panel
     [Tooltip("Game Goal Panel")]
     [SerializeField]
-    private GameObject goalPanel; 
+    private GameObject goalPanel;
 
     //Player
     [Tooltip("Player")]
@@ -59,6 +64,12 @@ public class ButtonManager : MonoBehaviour
         controlsMenu.SetActive(true);
     }
 
+    public void OnOptionsButton()
+    {
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
     public void OnGoalButton()
     {
         mainMenu.SetActive(false);
@@ -69,6 +80,7 @@ public class ButtonManager : MonoBehaviour
     public void OnBackButton()
     {
         controlsMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         goalPanel.SetActive(false);
         mainMenu.SetActive(true);
         player.SetActive(true);

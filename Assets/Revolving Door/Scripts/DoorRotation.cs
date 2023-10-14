@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DoorRotation : MonoBehaviour 
 {
+    // Pause script reference
+    [Tooltip("Pause script reference")]
+    [SerializeField]
+    private Pause pause;
+
     public int Speed;
 	private bool isOpen;
 	
@@ -20,12 +25,12 @@ public class DoorRotation : MonoBehaviour
 		isOpen = true;
 	}
 
-	void OnTriggerEnter(Collider other)
-   {
-    if(other.name == "Player" && isOpen)
+    void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
-		
+        if (other.name == "Player" && isOpen)
+        {
+            pause.DisablePause();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
-   }
 }

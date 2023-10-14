@@ -8,18 +8,6 @@ public class MouseLook : MonoBehaviour
     [SerializeField]
     private Transform cam;
 
-    // Horizontal mouse sensitivity
-    [Tooltip("Horizontal mouse sensitivity")]
-    [Range(1, 100)]
-    [SerializeField]
-    private int mouseSensitivityX;
-
-    // Vertical mouse sensitivity
-    [Tooltip("Vertical mouse sensitivity")]
-    [Range(1, 100)]
-    [SerializeField]
-    private int mouseSensitivityY;
-
     // Inverts vertical look
     [Tooltip("Inverts vertical look")]
     [SerializeField]
@@ -29,6 +17,12 @@ public class MouseLook : MonoBehaviour
     [HideInInspector]
     public float mouseX, mouseY;
 
+    // Mouse sensitivity for the X-axis
+    private float mouseSensitivityX;
+
+    // Mouse sensitivity for the Y-axis
+    private float mouseSensitivityY;
+
     // Controls if the player can look around
     private bool canLook;
 
@@ -36,6 +30,9 @@ public class MouseLook : MonoBehaviour
     {
         // Initially, prevent mouse input
         canLook = false;
+
+        // Retrieve mouse sensitivities
+        UpdateSensitivities();
     }
 
     public void EnableMouseLook()
@@ -45,10 +42,12 @@ public class MouseLook : MonoBehaviour
         // Allow mouse input
         canLook = true;
     }
+
     public void DisableMouseLook()
     {
         canLook = false;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -77,5 +76,11 @@ public class MouseLook : MonoBehaviour
     {
         mouseX = mouseInput.x * mouseSensitivityX * Time.deltaTime;
         mouseY = mouseInput.y * mouseSensitivityY * Time.deltaTime;    
+    }
+
+    public void UpdateSensitivities()
+    {
+        mouseSensitivityX = PlayerPrefs.GetFloat("MouseSensitivityX");
+        mouseSensitivityY = PlayerPrefs.GetFloat("MouseSensitivityY");
     }
 }

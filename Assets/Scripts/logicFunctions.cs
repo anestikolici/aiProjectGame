@@ -30,6 +30,10 @@ public class logicFunctions : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
 
     public Dictionary<string, int> PillarList
     {
@@ -142,7 +146,7 @@ public class logicFunctions : MonoBehaviour
                     audioPlayerCleared.PlayAudio();
                     questionnaireQuestions[0].SetActive(true);
                     playerShooting.SetIsSolved(true);
-
+                    timer.PauseTimer();
                 }
 
             }

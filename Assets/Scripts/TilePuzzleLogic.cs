@@ -36,6 +36,11 @@ public class TilePuzzleLogic : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI ammoText;
 
+    // Timer script reference
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
     // Array of all tiles
     private GameObject[] tiles;
 
@@ -70,6 +75,7 @@ public class TilePuzzleLogic : MonoBehaviour
             playerShooting.SetAmmo(30);
             ammoText.text = ("Ammo: 30");
             playerShooting.SetIsSolved(true);
+            timer.PauseTimer();
         }
         return isSolved;
     }

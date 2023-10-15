@@ -10,6 +10,11 @@ public class DoorRotation : MonoBehaviour
     [SerializeField]
     private Pause pause;
 
+    // Timer script reference
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
     public int Speed;
 	private bool isOpen;
 	
@@ -30,6 +35,7 @@ public class DoorRotation : MonoBehaviour
         if (other.name == "Player" && isOpen)
         {
             pause.DisablePause();
+            timer.ResetTimer();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

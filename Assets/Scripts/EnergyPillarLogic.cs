@@ -31,6 +31,11 @@ public class EnergyPillarLogic : MonoBehaviour
     [SerializeField]
     private EnergyPillar pillar3;
 
+    // Timer script reference
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
     public bool CheckPuzzle()
     {
         bool isSolved = true;
@@ -53,6 +58,7 @@ public class EnergyPillarLogic : MonoBehaviour
             audioPlayerCleared.PlayAudio();
             questionnaireQuestions[0].SetActive(true);
             playerShooting.SetIsSolved(true);
+            timer.PauseTimer();
         }
         return isSolved;
     }

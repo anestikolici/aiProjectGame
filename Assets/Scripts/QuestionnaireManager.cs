@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System;
 using UnityEngine;
 
 public class QuestionnaireManager : MonoBehaviour
@@ -38,7 +39,7 @@ public class QuestionnaireManager : MonoBehaviour
     private string currentLevel = "1";
 
     // timer
-    [Tooltip("Reference to the Timer script")]
+    [Tooltip("Timer script reference")]
     [SerializeField]
     private Timer timer;
 
@@ -81,26 +82,31 @@ public class QuestionnaireManager : MonoBehaviour
     /// </summary>
     public void SaveToCSV()
     {
-        TextWriter tw = new StreamWriter("player_data.csv", false);
-        tw.WriteLine("Level; Valence; Arousal; Dominance; Bullets Shot; Number of Resets; Elapsed Time");
-        tw.Close();
+        StreamWriter sw = new StreamWriter("player_data.csv", true);
 
-        tw = new StreamWriter("player_data.csv", true);
+        if (sw.BaseStream.Length == 0)
+        {
+            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot;Number of Resets;Elapsed Time");
+        }
+
+        string line;
+
         switch (currentLevel)
         {
             case "1":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_; " + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;{timer.ElapsedTime}";
+                sw.WriteLine(line);
                 break;
             case "2":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";_" + ";" + resetTile.GetTotalResets() + ";" + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};0;{resetTile.GetTotalResets()};{timer.ElapsedTime}";
+                sw.WriteLine(line);
                 break;
             case "3":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets() + ";" + + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{timer.ElapsedTime}";
+                sw.WriteLine(line);       
                 break;
         }
-
-        tw.Close();
+        sw.Close();
     }
-
     #endregion
 }

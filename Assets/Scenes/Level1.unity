@@ -1498,6 +1498,7 @@ MonoBehaviour:
   - {fileID: 2110738}
   audioPlayerCleared: {fileID: 133047406}
   playerShooting: {fileID: 1348168382}
+  timer: {fileID: 4758660574762674177}
 --- !u!4 &133047402
 Transform:
   m_ObjectHideFlags: 0
@@ -22579,6 +22580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 133047405}
+  timer: {fileID: 4758660574762674177}
   Speed: 8
 --- !u!65 &1779797892
 BoxCollider:

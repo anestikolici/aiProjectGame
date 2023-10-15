@@ -563,6 +563,7 @@ MonoBehaviour:
   weapon: {fileID: 5091220258345582271}
   playerShooting: {fileID: 1348168385}
   ammoText: {fileID: 5939411872267083088}
+  timer: {fileID: 8235477273710312684}
 --- !u!114 &133047406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33945,6 +33946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 133047406}
+  timer: {fileID: 8235477273710312684}
   Speed: 8
 --- !u!4 &6452705233538022888
 Transform:

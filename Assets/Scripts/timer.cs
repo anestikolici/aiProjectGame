@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Timer : MonoBehaviour
 
     public float ElapsedTime
     {
-        get { return elapsedTime; }
+        get { return (float)Math.Round(elapsedTime, 3); }
     }
 
     public bool IsTimerRunning()
@@ -41,11 +42,6 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         isTimerRunning = true;
-    }
-
-    public void StopTimer()
-    {
-        isTimerRunning = false;
     }
 
     public void ResetTimer()

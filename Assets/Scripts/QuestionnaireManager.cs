@@ -47,6 +47,10 @@ public class QuestionnaireManager : MonoBehaviour
     [SerializeField]
     private Timer timer;
 
+    [Tooltip("DoorRotation script")]
+    [SerializeField]
+    private DoorRotation doorRotation;
+
 
     #endregion
 
@@ -76,6 +80,7 @@ public class QuestionnaireManager : MonoBehaviour
         else
         {
             questionnaireQuestions[currentQuestionIndex].SetActive(false);
+            doorRotation.SetIsAnswered(true);
             gameEnded.SetActive(true);
             SaveToCSV();
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45106196, g: 0.50088763, b: 0.57416064, a: 1}
+  m_IndirectSpecularColor: {r: 0.4510616, g: 0.5008868, b: 0.5741595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22371,6 +22371,7 @@ MonoBehaviour:
   pillar: {fileID: 0}
   currentLevel: 2
   timer: {fileID: 8235477273710312684}
+  doorRotation: {fileID: 6441473819903588673}
   questionAnswers: []
 --- !u!65 &2288619699872584179
 BoxCollider:

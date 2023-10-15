@@ -14451,6 +14451,7 @@ MonoBehaviour:
   pillar: {fileID: 0}
   currentLevel: 1
   timer: {fileID: 4758660574762674177}
+  doorRotation: {fileID: 1779797889}
   questionAnswers: []
 --- !u!114 &1173263057
 MonoBehaviour:

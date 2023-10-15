@@ -16410,7 +16410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 74.87}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &309291842877006357
@@ -37843,13 +37843,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shoot the pillars to turn the lights on and off.
+  m_text: 'Step on each tile to change its color from white to black or from black
+    to white.
 
-    Turn on the same
-    number of lights in each pillar to open the door.
 
-    Notice that they interact
-    with each other!'
+    When a tile changes color, the neighboring tiles also change.
+
+
+    Turn
+    all tiles to white to finish the level.
+
+
+    Step on the green tile to reset
+    all tiles to black.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

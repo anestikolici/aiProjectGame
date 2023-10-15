@@ -64,7 +64,6 @@ public class TilePuzzleLogic : MonoBehaviour
             door.GetComponent<DoorRotation>().enabled = true;
             messageText.text = messageContent;
             messageText.enabled = true;
-            Debug.Log("SOLVED");
             audioPlayerCleared.PlayAudio();
             questionnaireQuestions[0].SetActive(true);   
             weapon.SetActive(true);

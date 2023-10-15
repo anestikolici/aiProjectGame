@@ -18,10 +18,10 @@ public class MouseLook : MonoBehaviour
     public float mouseX, mouseY;
 
     // Mouse sensitivity for the X-axis
-    private float mouseSensitivityX;
+    private float mouseSensitivityX = 100f;
 
     // Mouse sensitivity for the Y-axis
-    private float mouseSensitivityY;
+    private float mouseSensitivityY = 100f;
 
     // Controls if the player can look around
     private bool canLook;

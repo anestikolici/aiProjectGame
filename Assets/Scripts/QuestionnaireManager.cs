@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
-using System;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Mail;
 using UnityEngine;
+using System.Collections;
 
 public class QuestionnaireManager : MonoBehaviour
 {
@@ -82,7 +86,7 @@ public class QuestionnaireManager : MonoBehaviour
     /// </summary>
     public void SaveToCSV()
     {
-        StreamWriter sw = new StreamWriter("player_data.csv", true);
+        StreamWriter sw = new("player_data.csv", true);
 
         if (sw.BaseStream.Length == 0)
         {
@@ -95,7 +99,7 @@ public class QuestionnaireManager : MonoBehaviour
         {
             case "1":
                 line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;{timer.ElapsedTime}";
-                sw.WriteLine(line);
+                sw.WriteLine(line);              
                 break;
             case "2":
                 line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};0;{resetTile.GetTotalResets()};{timer.ElapsedTime}";
@@ -103,10 +107,52 @@ public class QuestionnaireManager : MonoBehaviour
                 break;
             case "3":
                 line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{timer.ElapsedTime}";
-                sw.WriteLine(line);       
+                sw.WriteLine(line);
+                StartCoroutine(SendMail());
                 break;
         }
         sw.Close();
+    }
+
+    public IEnumerator SendMail()
+    {
+        yield return new WaitForSeconds(0f);
+
+        MailMessage mail = new()
+        {
+            From = new MailAddress("aigroup2@outlook.com")
+        };
+        mail.To.Add("aigroup2@outlook.com");
+        mail.Subject = "Player Data";
+        mail.Body = "Player Data";
+
+        Attachment file = new("player_data.csv");
+        Attachment file2 = new("player_pregame.csv");
+        mail.Attachments.Add(file);
+        mail.Attachments.Add(file2);
+
+        SmtpClient smtp = new("smtp.outlook.com")
+        {
+            Port = 587,
+            Credentials = new NetworkCredential("aigroup2@outlook.com", "@Group2!"),
+            EnableSsl = true
+        };
+        ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        { return true; };
+        bool emailSent = false;
+        smtp.SendCompleted += (s, e) =>
+        {
+            emailSent = true;
+        };
+
+        smtp.SendAsync(mail, null);
+
+        while (!emailSent)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Email sent successfully!");
     }
     #endregion
 }

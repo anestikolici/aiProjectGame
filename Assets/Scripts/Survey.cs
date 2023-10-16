@@ -31,6 +31,8 @@ public class Survey : MonoBehaviour
      public ToggleGroup toggleGroup2;
      public ToggleGroup toggleGroup3;
 
+    private bool isDone = false;
+
     void Start()
     {
         // hide all pages except the first one initially
@@ -46,8 +48,11 @@ public class Survey : MonoBehaviour
 
     public void ShowPopup()
     {
-        popupPanel.SetActive(true);
-        ShowCurrentPage();
+        if(!isDone)
+        {
+            popupPanel.SetActive(true);
+            ShowCurrentPage();
+        }
     }
 
     public void ClosePopup()
@@ -119,6 +124,7 @@ public class Survey : MonoBehaviour
     }
     public void HideEntireSurvey()
     {
+        isDone = true;
         popupPanel.SetActive(false);
     }
     private bool ValidateFields()

@@ -95,7 +95,7 @@ public class QuestionnaireManager : MonoBehaviour
 
         if (sw.BaseStream.Length == 0)
         {
-            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot;Number of Resets;Elapsed Time");
+            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot/Stepped Tiles;Number of Resets;Elapsed Time");
         }
 
         string line;
@@ -107,7 +107,7 @@ public class QuestionnaireManager : MonoBehaviour
                 sw.WriteLine(line);              
                 break;
             case "2":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};0;{resetTile.GetTotalResets()};{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{resetTile.GetTotalTiles()};{resetTile.GetTotalResets()};{timer.ElapsedTime}";
                 sw.WriteLine(line);
                 break;
             case "3":

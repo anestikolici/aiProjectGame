@@ -34301,7 +34301,7 @@ PrefabInstance:
         process involved in this study, feel free to contact us. \r\n\nAndigoni Roumana
         \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 [email]\nCeline Conzen
         \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 [email]\nHarris Georgiadis
-        \u2013 [email]\n\n"
+        \u2013 c.georgiadis@students.uu.nl\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5569708632291749767, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive

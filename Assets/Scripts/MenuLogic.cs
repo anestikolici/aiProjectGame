@@ -61,6 +61,9 @@ public class MenuLogic : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
+    // Controls if the menu buttons can be pressed
+    private bool canPress = false;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -101,24 +104,30 @@ public class MenuLogic : MonoBehaviour
         crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        canPress = true;
         gameObject.SetActive(false);
     }
 
     public void ControlsButton()
     {
-        mainMenu.SetActive(false);
-        controlsMenu.SetActive(true);
-        ammoCountPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        if (canPress)
+        {
+            mainMenu.SetActive(false);
+            controlsMenu.SetActive(true);
+            ammoCountPanel.SetActive(false);
+            pausePanel.SetActive(false);
+        }
     }
 
     public void OptionsButton()
     {
-        mainMenu.SetActive(false);
-        optionsMenu.SetActive(true);
-        ammoCountPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        if (canPress)
+        {
+            mainMenu.SetActive(false);
+            optionsMenu.SetActive(true);
+            ammoCountPanel.SetActive(false);
+            pausePanel.SetActive(false);
+        }
     }
 
     public void BackButton()
@@ -136,10 +145,13 @@ public class MenuLogic : MonoBehaviour
 
     public void GoalButton()
     {
-        mainMenu.SetActive(false);
-        goalPanel.SetActive(true);
-        ammoCountPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        if (canPress)
+        {
+            mainMenu.SetActive(false);
+            goalPanel.SetActive(true);
+            ammoCountPanel.SetActive(false);
+            pausePanel.SetActive(false);
+        }
     }
 
     public void ExitButton()

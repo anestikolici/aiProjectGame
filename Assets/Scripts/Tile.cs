@@ -39,6 +39,9 @@ public class Tile : MonoBehaviour
     // Controls whether the puzzle has been solved
     private static bool isSolved = false;
 
+    // Total number of tiles that were stepped on (excluding the reset tile)
+    private static int totalTiles = 0;
+
     /// <summary>
     /// Called on the first frame
     /// </summary>
@@ -60,8 +63,9 @@ public class Tile : MonoBehaviour
             Color currentColor;
             if (adjacentTiles.Count > 0)
             {
+                totalTiles++;
                 foreach (MeshRenderer r in adjacentTiles)
-                {
+                {                   
                     r.GetPropertyBlock(materialPropertyBlock);
                     currentColor = materialPropertyBlock.GetColor("_Color");
                     if (currentColor == lightOff.color)
@@ -141,5 +145,14 @@ public class Tile : MonoBehaviour
     public bool GetIsOn()
     {
         return isOn;
+    }
+
+    /// <summary>
+    /// Returns the total number of tiles that were stepped on (excluding the reset tile)
+    /// </summary>
+    /// <returns>Total number of tiles that were stepped on (excluding the reset tile)</returns>
+    public int GetTotalTiles()
+    {
+        return totalTiles;
     }
 }

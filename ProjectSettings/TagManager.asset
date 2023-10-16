@@ -14,6 +14,7 @@ TagManager:
   - lights3
   - Tile
   - WeaponCamera
+  - Collectibles
   layers:
   - Default
   - TransparentFX

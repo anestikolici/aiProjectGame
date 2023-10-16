@@ -22,7 +22,7 @@ public class PlayerMovement1 : MonoBehaviour
     float wallClimbSpeed = 4f;
     float wallAccel = 20f;
     //how much time can you run on the wall
-    float wallRunTime = 2f;
+    float wallRunTime = 1f;
     float wallStickiness = 2f;
     float wallStickDistance = 1f;
     float wallFloorBarrier = 40f;
@@ -146,6 +146,15 @@ public class PlayerMovement1 : MonoBehaviour
 
         Vector3 direction = new Vector3(hAxis, 0, vAxis);
         return rb.transform.TransformDirection(direction);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectibles"))
+        {
+            other.gameObject.SetActive(false);
+
+        }
     }
 
 

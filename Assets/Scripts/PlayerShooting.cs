@@ -124,7 +124,7 @@ public class PlayerShooting : MonoBehaviour
             if (Time.time > lastFired + fireRate)
             {
                 currentAmmo--;
-                if (isSolved)
+                if (!isSolved)
                     totalBullets++;
                 ammoText.SetText("Ammo: " + currentAmmo);
                 lastFired = Time.time;

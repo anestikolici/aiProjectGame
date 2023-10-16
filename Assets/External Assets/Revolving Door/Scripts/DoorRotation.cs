@@ -10,6 +10,13 @@ public class DoorRotation : MonoBehaviour
     [SerializeField]
     private Pause pause;
 
+    // Timer script reference
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
+    private bool isAnswered = false;
+
     public int Speed;
 	private bool isOpen;
 	
@@ -27,10 +34,16 @@ public class DoorRotation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player" && isOpen)
+        if (other.name == "Player" && isOpen && isAnswered)
         {
             pause.DisablePause();
+            timer.ResetTimer();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+    /// <param name="isSolved">Controls whether the puzzle has been solved or not</param>
+    public void SetIsAnswered(bool isAnswered)
+    {
+        this.isAnswered = isAnswered;
     }
 }

@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Mail;
 using UnityEngine;
+using System.Collections;
 
 public class QuestionnaireManager : MonoBehaviour
 {
@@ -38,9 +43,13 @@ public class QuestionnaireManager : MonoBehaviour
     private string currentLevel = "1";
 
     // timer
-    [Tooltip("Reference to the Timer script")]
+    [Tooltip("Timer script reference")]
     [SerializeField]
     private Timer timer;
+
+    [Tooltip("DoorRotation script")]
+    [SerializeField]
+    private DoorRotation doorRotation;
 
 
     #endregion
@@ -71,6 +80,7 @@ public class QuestionnaireManager : MonoBehaviour
         else
         {
             questionnaireQuestions[currentQuestionIndex].SetActive(false);
+            doorRotation.SetIsAnswered(true);
             gameEnded.SetActive(true);
             SaveToCSV();
         }
@@ -81,26 +91,73 @@ public class QuestionnaireManager : MonoBehaviour
     /// </summary>
     public void SaveToCSV()
     {
-        TextWriter tw = new StreamWriter("player_data.csv", false);
-        tw.WriteLine("Level; Valence; Arousal; Dominance; Bullets Shot; Number of Resets; Elapsed Time");
-        tw.Close();
+        StreamWriter sw = new("player_data.csv", true);
 
-        tw = new StreamWriter("player_data.csv", true);
+        if (sw.BaseStream.Length == 0)
+        {
+            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot;Number of Resets;Elapsed Time");
+        }
+
+        string line;
+
         switch (currentLevel)
         {
             case "1":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";" + playerShooting.GetBulletsShot() + ";_; " + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;{timer.ElapsedTime}";
+                sw.WriteLine(line);              
                 break;
             case "2":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";" + questionAnswers[2] + ";_" + ";" + resetTile.GetTotalResets() + ";" + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};0;{resetTile.GetTotalResets()};{timer.ElapsedTime}";
+                sw.WriteLine(line);
                 break;
             case "3":
-                tw.WriteLine(currentLevel + ";" + questionAnswers[0] + ";" + questionAnswers[1] + ";_;" + playerShooting.GetBulletsShot() + ";" + pillar.GetTotalResets() + ";" + + timer.ElapsedTime);
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{timer.ElapsedTime}";
+                sw.WriteLine(line);
+                StartCoroutine(SendMail());
                 break;
         }
-
-        tw.Close();
+        sw.Close();
     }
 
+    public IEnumerator SendMail()
+    {
+        yield return new WaitForSeconds(0f);
+
+        MailMessage mail = new()
+        {
+            From = new MailAddress("aigroup2@outlook.com")
+        };
+        mail.To.Add("aigroup2@outlook.com");
+        mail.Subject = "Player Data";
+        mail.Body = "Player Data";
+
+        Attachment file = new("player_data.csv");
+        Attachment file2 = new("player_pregame.csv");
+        mail.Attachments.Add(file);
+        mail.Attachments.Add(file2);
+
+        SmtpClient smtp = new("smtp.outlook.com")
+        {
+            Port = 587,
+            Credentials = new NetworkCredential("aigroup2@outlook.com", "@Group2!"),
+            EnableSsl = true
+        };
+        ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        { return true; };
+        bool emailSent = false;
+        smtp.SendCompleted += (s, e) =>
+        {
+            emailSent = true;
+        };
+
+        smtp.SendAsync(mail, null);
+
+        while (!emailSent)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Email sent successfully!");
+    }
     #endregion
 }

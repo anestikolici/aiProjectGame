@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45106196, g: 0.50088763, b: 0.57416064, a: 1}
+  m_IndirectSpecularColor: {r: 0.4510616, g: 0.5008868, b: 0.5741595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -563,6 +563,7 @@ MonoBehaviour:
   weapon: {fileID: 5091220258345582271}
   playerShooting: {fileID: 1348168385}
   ammoText: {fileID: 5939411872267083088}
+  timer: {fileID: 8235477273710312684}
 --- !u!114 &133047406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16409,7 +16410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 74.87}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &309291842877006357
@@ -22370,6 +22371,7 @@ MonoBehaviour:
   pillar: {fileID: 0}
   currentLevel: 2
   timer: {fileID: 8235477273710312684}
+  doorRotation: {fileID: 6441473819903588673}
   questionAnswers: []
 --- !u!65 &2288619699872584179
 BoxCollider:
@@ -33945,6 +33947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 133047406}
+  timer: {fileID: 8235477273710312684}
   Speed: 8
 --- !u!4 &6452705233538022888
 Transform:
@@ -37841,13 +37844,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shoot the pillars to turn the lights on and off.
+  m_text: 'Step on each tile to change its color from white to black or from black
+    to white.
 
-    Turn on the same
-    number of lights in each pillar to open the door.
 
-    Notice that they interact
-    with each other!'
+    When a tile changes color, the neighboring tiles also change.
+
+
+    Turn
+    all tiles to white to finish the level.
+
+
+    Step on the green tile to reset
+    all tiles to black.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tile : MonoBehaviour
@@ -96,9 +97,8 @@ public class Tile : MonoBehaviour
                         var renderer = tile.GetComponent<MeshRenderer>();
                         renderer.GetPropertyBlock(materialPropertyBlock);
                         currentColor = materialPropertyBlock.GetColor("_Color");
-                        if (currentColor == lightOn.color)
+                        if (!currentColor.CompareRGB(lightOff.color))
                             areReset = false;
-                        Debug.Log(areReset);
                         materialPropertyBlock.SetColor("_Color", lightOff.color);
                         tile.GetComponent<Tile>().ChangeTileStatus(false);
                         renderer.SetPropertyBlock(materialPropertyBlock);

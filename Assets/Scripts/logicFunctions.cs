@@ -30,6 +30,10 @@ public class logicFunctions : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
+    [Tooltip("Timer script reference")]
+    [SerializeField]
+    private Timer timer;
+
 
     public Dictionary<string, int> PillarList
     {
@@ -67,9 +71,6 @@ public class logicFunctions : MonoBehaviour
             while (pillarList["Pillar1"] == pillarList["Pillar3"])
                 pillarList["Pillar3"] = Random.Range(1, 4);
         }
-
-        foreach (KeyValuePair<string, int> kvp in pillarList)
-            Debug.Log( kvp.Key + "/" + kvp.Value);
     }
 
     //increments the number for the puzzle from 1 to 3
@@ -143,10 +144,9 @@ public class logicFunctions : MonoBehaviour
                     messageText.text = messageContent;
                     messageText.enabled = true;
                     audioPlayerCleared.PlayAudio();
-                    //Debug.Log("SOLVED");
                     questionnaireQuestions[0].SetActive(true);
-                    playerShooting.enabled = true;
-
+                    playerShooting.SetIsSolved(true);
+                    timer.PauseTimer();
                 }
 
             }

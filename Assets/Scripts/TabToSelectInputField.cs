@@ -29,16 +29,21 @@ public class TabToSelect : MonoBehaviour
     {
         controls = new PlayerInputs();
         player = controls.Player;
-        tab = player.Tab;
+        tab = player.Tab;     
     }
 
     /// <summary>
-    /// Called when the Player object becomes active
+    /// Called when the object becomes active
     /// </summary>
     public void OnEnable()
     {
         controls.Enable();
         tab.performed += ctx => MoveToNextField();
+    }
+
+    public void Start()
+    {
+        inputFields[currentField].Select();
     }
 
     /// <summary>

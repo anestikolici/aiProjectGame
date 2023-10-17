@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuLogic : MonoBehaviour
@@ -74,12 +73,6 @@ public class MenuLogic : MonoBehaviour
     public void StartButton()
     {
         StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0f), Quaternion.identity, 2));
-
-        // start timer after the start button is pressed 
-         if (timer != null)
-        {
-            timer.StartTimer();
-        }
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)
@@ -104,8 +97,15 @@ public class MenuLogic : MonoBehaviour
         crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        canPress = true;
+        
         gameObject.SetActive(false);
+
+        // start timer after the start button is pressed 
+        if (timer != null)
+        {
+            timer.StartTimer();
+        }
+        canPress = true;
     }
 
     public void ControlsButton()

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +7,7 @@ public class MaterialChanger : MonoBehaviour
     public Material lightOn;
 
     //testing the arrays
-    GameObject[] lights;
-    GameObject[] lightsOn;
-    GameObject selectedcube;
-    int index;
     public int hitCounts = 0;
-    GameObject parentGameObject;
-    GameObject[] nextParentGameObject;
     GameObject[] cubes_1;
     GameObject[] cubes_2;
     GameObject[] cubes_3;

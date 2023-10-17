@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,10 +8,15 @@ public class TilePuzzleLogic : MonoBehaviour
     public TextMeshProUGUI messageText;
     public string messageContent = "Puzzle cleared! The door has opened";
 
-    // List of questionnaire question objects
-    [Tooltip("List of questionnaire question objects")]
+    // First questionnaire question object
+    [Tooltip("First questionnaire question object")]
     [SerializeField]
-    private List<GameObject> questionnaireQuestions;
+    private GameObject firstQuestion;
+
+    // Help text object on the wall
+    [Tooltip("Help text object on the wall")]
+    [SerializeField]
+    private GameObject helpText;
 
     // AudioPlayerCleared script
     [Tooltip("AudioPlayerCleared script")]
@@ -70,7 +72,8 @@ public class TilePuzzleLogic : MonoBehaviour
             messageText.text = messageContent;
             messageText.enabled = true;
             audioPlayerCleared.PlayAudio();
-            questionnaireQuestions[0].SetActive(true);   
+            helpText.SetActive(false);
+            firstQuestion.SetActive(true);   
             weapon.SetActive(true);
             playerShooting.SetAmmo(30);
             ammoText.text = ("Ammo: 30");

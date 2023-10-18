@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
-  timer: {fileID: 0}
+  timer: {fileID: 1325252005}
   Speed: 8
 --- !u!4 &71164888 stripped
 Transform:
@@ -1737,6 +1737,7 @@ MonoBehaviour:
   - {fileID: 759361150}
   gameEnded: {fileID: 119543671}
   playerShooting: {fileID: 0}
+  playerShooting2: {fileID: 344161369}
   resetTile: {fileID: 0}
   pillar: {fileID: 0}
   currentLevel: 4
@@ -17497,7 +17498,7 @@ GameObject:
   - component: {fileID: 755848175}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21321,6 +21322,7 @@ MonoBehaviour:
   helpText: {fileID: 235940960}
   audioPlayerCleared: {fileID: 888433453}
   playerShooting: {fileID: 0}
+  Shooting: {fileID: 344161369}
   timer: {fileID: 1325252005}
 --- !u!4 &888433455
 Transform:

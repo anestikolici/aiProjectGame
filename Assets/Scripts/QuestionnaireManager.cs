@@ -21,6 +21,11 @@ public class QuestionnaireManager : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
+        // Player shooting script
+    [Tooltip("2nd Player shooting script. Is only required in puzzles with shooting")]
+    [SerializeField]
+    private Shooting playerShooting2;
+
     // Reset tile
     [Tooltip("Reset tile. Is only required for the tile puzzle.")]
     [SerializeField]
@@ -109,6 +114,10 @@ public class QuestionnaireManager : MonoBehaviour
                 break;
             case "3":
                 line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime}";
+                sw.WriteLine(line);
+                break;
+            case "4":
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting2.GetBulletsShot()};0;0;{timer.ElapsedTime}";
                 sw.WriteLine(line);
                 break;
         }

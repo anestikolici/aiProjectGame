@@ -36,7 +36,8 @@ public class DoorRotation : MonoBehaviour
     {
         if (other.name == "Player" && isOpen && isAnswered)
         {
-            pause.DisablePause();
+            if (pause!= null)
+                pause.DisablePause();
             timer.ResetTimer();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

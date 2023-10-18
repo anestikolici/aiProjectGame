@@ -36,6 +36,10 @@ public class logicFunctions : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
+    [Tooltip("PlayerShooting script")]
+    [SerializeField]
+    private Shooting Shooting;
+
     [Tooltip("Timer script reference")]
     [SerializeField]
     private Timer timer;

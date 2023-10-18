@@ -59,7 +59,7 @@ public class PlayerShooting : MonoBehaviour
     // Player movement script
     [Tooltip("Player Movement Script")]
     [SerializeField]
-    private PlayerMovement1 playerMovement;
+    private PlayerMovement playerMovement;
 
     #endregion
 

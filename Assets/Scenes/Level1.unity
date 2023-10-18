@@ -1662,6 +1662,7 @@ MonoBehaviour:
   controlsMenu: {fileID: 764994632611826441}
   optionsMenu: {fileID: 6834582590184552512}
   helpMenu: {fileID: 2461836476606076197}
+  hintButton: {fileID: 0}
   mouseLook: {fileID: 1348168381}
   crosshair: {fileID: 4032469724856683686}
   inputManager: {fileID: 1348168380}
@@ -15094,6 +15095,7 @@ MonoBehaviour:
   currentLevel: 1
   timer: {fileID: 4758660574762674177}
   doorRotation: {fileID: 1779797889}
+  hintManager: {fileID: 0}
   questionAnswers: []
 --- !u!114 &1173263057
 MonoBehaviour:
@@ -17661,7 +17663,7 @@ MonoBehaviour:
   laserAudio: {fileID: 1527302714}
   reloadAudio: {fileID: 994927511}
   ammoText: {fileID: 7074422498382252477}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1348168379}
 --- !u!95 &1348168383
 Animator:
   serializedVersion: 5
@@ -30366,7 +30368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -175.5, y: 34.299988}
+  m_AnchoredPosition: {x: -175.5, y: 34.30005}
   m_SizeDelta: {x: 60, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &802854066901890409
@@ -36284,6 +36286,7 @@ MonoBehaviour:
   controlsMenu: {fileID: 764994632611826441}
   optionsMenu: {fileID: 6834582590184552512}
   goalPanel: {fileID: 2461836476606076197}
+  hintButton: {fileID: 0}
   ammoCountPanel: {fileID: 3450032904761138498}
   pausePanel: {fileID: 5286946018069419548}
   crosshair: {fileID: 4032469724856683686}

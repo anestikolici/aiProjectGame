@@ -35,6 +35,8 @@ public class PauseParkour : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
+    public GameObject Player; //for removing gun on pause
+
     
     [Tooltip("Input Manager script")]
     [SerializeField]
@@ -52,6 +54,11 @@ public class PauseParkour : MonoBehaviour
         _pause = mainMenuActions.MainMenu;
         _pause.Enable();
         _pause.Pause.performed += PausePerformed;    */  
+    }
+
+    void Start()
+    {
+        _timer.StartTimer();
     }
 
     void Update()
@@ -84,6 +91,8 @@ public class PauseParkour : MonoBehaviour
         controlsMenu.SetActive(true); //hide the controls menu
         optionsMenu.SetActive(true); //hide the options menu
 
+        Player.SetActive(false);// disable player
+
         cameraController.DisableCameraControl(); //stop camera movement according to mouse position
 
         _timer.PauseTimer(); //pause the timer
@@ -108,6 +117,8 @@ public class PauseParkour : MonoBehaviour
         cameraController.EnableCameraControl(); // Enable mouse look
 
         _timer.StartTimer(); // Enable timer
+
+        Player.SetActive(true); //Enable player
 
         crosshair.SetActive(true); //show the crosshair  
 

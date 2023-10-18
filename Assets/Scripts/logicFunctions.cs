@@ -155,6 +155,8 @@ public class logicFunctions : MonoBehaviour
                 count++;
                 if (count == 3)
                 {
+                    materialChanger.ChangeMaterial(pillarList);
+
                     doorLight.color = Color.green;
                     door.GetComponent<DoorRotation>().enabled = true;
                     isSolved = true;

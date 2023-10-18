@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MenuLogicParkour : MonoBehaviour
 {
-     public Timer timer;
-    
+    public Timer timer;
+    public GameObject Player; //for removing gun on pause
+
     // Player Movement script
     [Tooltip("Player Movement Script")]
     [SerializeField]
@@ -169,5 +170,7 @@ public class MenuLogicParkour : MonoBehaviour
         cameraController.EnableCameraControl();
         crosshair.SetActive(true);
         timer.StartTimer();
+
+        Player.SetActive(true); //Enable player
     }
 }

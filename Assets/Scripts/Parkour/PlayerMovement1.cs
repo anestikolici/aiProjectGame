@@ -257,7 +257,6 @@ public class PlayerMovement1 : MonoBehaviour
         {
             if (VectorToGround().magnitude > 0.2f && CanRunOnThisWall(bannedGroundNormal) && wallStickTimer == 0f)
             {
-                gameObject.SendMessage("OnStartWallrunning");
                 wrTimer = wallRunTime;
                 canDJump = true;
                 mode = Mode.Wallruning;

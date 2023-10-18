@@ -19,7 +19,7 @@ public class MouseSensitivitySlider : MonoBehaviour
     private MouseLook mouseLook;
 
     // Current audio volume
-    private float mouseSensitivity;
+    private static float mouseSensitivity;
 
     /// <summary>
     /// Called before the first frame update
@@ -29,7 +29,12 @@ public class MouseSensitivitySlider : MonoBehaviour
         if (PlayerPrefs.HasKey("MouseSensitivity" + mouseAxis))
             mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity" + mouseAxis);
         else
-            mouseSensitivity = 100;
+        {
+            mouseSensitivity = 50;
+            PlayerPrefs.SetFloat("MouseSensitivity" + mouseAxis, mouseSensitivity);
+            PlayerPrefs.Save();
+        }
+            
 
         mouseSensitivitySlider.value = mouseSensitivity;
     }
@@ -43,6 +48,6 @@ public class MouseSensitivitySlider : MonoBehaviour
         PlayerPrefs.Save();
 
         if (mouseLook != null)
-            mouseLook.UpdateSensitivities();
+            mouseLook.UpdateSensitivities();         
     }
 }

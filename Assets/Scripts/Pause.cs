@@ -71,7 +71,8 @@ public class Pause : MonoBehaviour
             optionsMenu.SetActive(false); //hide the options menu
             helpMenu.SetActive(false); //hide the help menu
 
-            hintButton.DisableImage();
+            if (hintButton != null)
+                hintButton.DisableImage();
 
             mouseLook.EnableMouseLook(); // Enable mouse look
             inputManager.EnablePlayerInput(); // Enable player input

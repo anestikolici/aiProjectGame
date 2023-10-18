@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
@@ -8,19 +9,17 @@ public class MouseLook : MonoBehaviour
     private Transform cam;
 
     // Inverts vertical look
-    [Tooltip("Inverts vertical look")]
-    [SerializeField]
-    private bool invertY = false;
+    private static bool invertY = false;
 
     // Mouse X and Y values
     [HideInInspector]
     public float mouseX, mouseY;
 
     // Mouse sensitivity for the X-axis
-    private float mouseSensitivityX = 100f;
+    private static float mouseSensitivityX = 50f;
 
     // Mouse sensitivity for the Y-axis
-    private float mouseSensitivityY = 100f;
+    private static float mouseSensitivityY = 50f;
 
     // Controls if the player can look around
     private bool canLook;
@@ -32,6 +31,15 @@ public class MouseLook : MonoBehaviour
 
         // Retrieve mouse sensitivities
         UpdateSensitivities();
+
+        if (PlayerPrefs.HasKey("InvertMouse"))
+        {
+            int invert = PlayerPrefs.GetInt("InvertMouse");
+            if (invert == 0)
+                invertY = true;
+            else
+                invertY = false;
+        }
     }
 
     public void EnableMouseLook()
@@ -57,9 +65,9 @@ public class MouseLook : MonoBehaviour
 
             // Vertical mouse look
             if (invertY)
-                cam.transform.Rotate(-mouseY, 0f, 0f);
-            else
                 cam.transform.Rotate(mouseY, 0f, 0f);
+            else
+                cam.transform.Rotate(-mouseY, 0f, 0f);
 
             // Restricting vertical camera movement
             if (cam.transform.localEulerAngles.x > 60f && cam.transform.localEulerAngles.x < 100f)
@@ -81,5 +89,10 @@ public class MouseLook : MonoBehaviour
     {
         mouseSensitivityX = PlayerPrefs.GetFloat("MouseSensitivityX");
         mouseSensitivityY = PlayerPrefs.GetFloat("MouseSensitivityY");
+    }
+
+    public void InvertMouse()
+    {
+        invertY = !invertY;
     }
 }

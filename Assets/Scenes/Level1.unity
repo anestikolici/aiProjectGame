@@ -1618,6 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4105ea2c206f54f8901d332d674b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialChanger: {fileID: 892809425}
   doorLight: {fileID: 1082469931}
   door: {fileID: 1779797888}
   isSolved: 0
@@ -34445,9 +34446,9 @@ PrefabInstance:
       propertyPath: m_text
       value: "\nIf there are any further questions about the research or any other
         process involved in this study, feel free to contact us. \r\n\nAndigoni Roumana
-        \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 [email]\nCeline Conzen
-        \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 [email]\nHarris Georgiadis
-        \u2013 c.georgiadis@students.uu.nl\n\n"
+        \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 a.kolici@students.uu.nl\nCeline
+        Conzen \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 g.pepe@students.uu.nl\nHarris
+        Georgiadis \u2013 c.georgiadis@students.uu.nl\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5569708632291749767, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive
@@ -34491,6 +34492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432964117229977401, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544075506702720992, guid: 7bb53124b55de224b9082108984a3081, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7869099361044184956, guid: 7bb53124b55de224b9082108984a3081, type: 3}

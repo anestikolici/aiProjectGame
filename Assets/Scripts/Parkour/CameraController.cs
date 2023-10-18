@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private bool cameraControlEnabled = true;
 
     public Camera mainCamera;
     public Camera weaponCamera;
@@ -30,7 +31,22 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        RotateMainCamera();
+        if(cameraControlEnabled)
+        {
+            RotateMainCamera();
+        }
+        
+        
+    }
+
+    public void DisableCameraControl()
+    {
+        cameraControlEnabled = false;
+    }
+
+    public void EnableCameraControl()
+    {
+        cameraControlEnabled = true;
     }
 
     void FixedUpdate()

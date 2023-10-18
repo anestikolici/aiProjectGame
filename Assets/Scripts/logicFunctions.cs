@@ -9,6 +9,8 @@ public class logicFunctions : MonoBehaviour
 {
     private Dictionary<string, int> pillarList;
 
+    public MaterialChanger materialChanger;
+
     [SerializeField] Light doorLight;
     [SerializeField] GameObject door;
     public bool isSolved;
@@ -54,7 +56,11 @@ public class logicFunctions : MonoBehaviour
 
         isSolved = false;
         LoadPillar();
+        if (PillarList == null)
+        {
+            Debug.Log("its emptyy");
 
+        }
         //loads lights
 
     }
@@ -75,6 +81,10 @@ public class logicFunctions : MonoBehaviour
             while (pillarList["Pillar1"] == pillarList["Pillar3"])
                 pillarList["Pillar3"] = Random.Range(1, 4);
         }
+
+        materialChanger.ChangeMaterial(pillarList);
+        foreach (KeyValuePair<string, int> kvp in pillarList)
+            Debug.Log(kvp.Key + "/" + kvp.Value);
     }
 
     //increments the number for the puzzle from 1 to 3

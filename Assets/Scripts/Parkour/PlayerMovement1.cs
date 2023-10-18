@@ -230,7 +230,7 @@ public class PlayerMovement1 : MonoBehaviour
                 //camCon.Punch(new Vector2(0, -3f));
             }
             //StartCoroutine(bHopCoroutine(bhopLeniency));
-            gameObject.SendMessage("OnStartWalking");
+            
             mode = Mode.Walking;
         }
     }
@@ -277,7 +277,6 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (jump && canJump)
         {
-            gameObject.SendMessage("OnJump");
             Jump();
         }
         else
@@ -311,7 +310,6 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (jump && !crouched)
         {
-            gameObject.SendMessage("OnDoubleJump");
             DoubleJump(wishDir);
         }
 
@@ -516,6 +514,7 @@ public class PlayerMovement1 : MonoBehaviour
     }
     #endregion
 
+    
 
 
     #region Coroutines

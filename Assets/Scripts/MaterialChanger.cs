@@ -13,6 +13,8 @@ public class MaterialChanger : MonoBehaviour
     GameObject[] cubes_3;
 
     private logicFunctions logic;
+    
+    
 
 
     void Start()
@@ -29,7 +31,7 @@ public class MaterialChanger : MonoBehaviour
 
         logic = GameObject.Find("Logic").GetComponent<logicFunctions>();
 
-
+        
         ChangeMaterial(logic.PillarList);
 
 

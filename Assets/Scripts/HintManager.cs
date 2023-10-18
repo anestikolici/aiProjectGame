@@ -9,20 +9,40 @@ public class HintManager : MonoBehaviour
     [SerializeField]
     private GameObject hintImage;
 
+    private int hintsPressed = 0;
+
+    private bool CanPress = true;
+
     public void OnClick()
     {
-        hintImage.SetActive(true);
-        StartCoroutine(ShowHint());
+        if (CanPress)
+        {
+            hintsPressed++;
+            hintImage.SetActive(true);
+            StartCoroutine(ShowHint());
+        }
     }
 
     IEnumerator ShowHint()
     {
-       
-           
-
             yield return new WaitForSeconds(5f);
-            hintImage.SetActive(false);
+            DisableImage();      
+    }
 
-        
+    public void DisableImage()
+    {
+        hintImage.SetActive(false);
+        GameObject myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+    }
+
+    public int GetHitnsPressed()
+    {
+        return hintsPressed;
+    }
+
+    public void SetCanPress(bool canPress)
+    {
+        this.CanPress = canPress;
     }
 }

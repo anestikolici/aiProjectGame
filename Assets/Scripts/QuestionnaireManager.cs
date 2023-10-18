@@ -45,6 +45,10 @@ public class QuestionnaireManager : MonoBehaviour
     [SerializeField]
     private DoorRotation doorRotation;
 
+    [Tooltip("HintManager script")]
+    [SerializeField]
+    private HintManager hintManager;
+
     #endregion
 
     #region - Non Serialize Fields -
@@ -88,7 +92,7 @@ public class QuestionnaireManager : MonoBehaviour
 
         if (sw.BaseStream.Length == 0)
         {
-            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot/Stepped Tiles;Number of Resets;Elapsed Time");
+            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot/Stepped Tiles;Number of Resets;HintsPressed;Elapsed Time");
         }
 
         string line;
@@ -96,15 +100,15 @@ public class QuestionnaireManager : MonoBehaviour
         switch (currentLevel)
         {
             case "1":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;0;{timer.ElapsedTime}";
                 sw.WriteLine(line);              
                 break;
             case "2":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{resetTile.GetTotalTiles()};{resetTile.GetTotalResets()};{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{resetTile.GetTotalTiles()};{resetTile.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime}";
                 sw.WriteLine(line);
                 break;
             case "3":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime}";
                 sw.WriteLine(line);
                 break;
         }

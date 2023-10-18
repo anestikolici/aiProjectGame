@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class Pause : MonoBehaviour
     [Tooltip("Help Button")]
     [SerializeField]
     private GameObject helpMenu;
+
+    [Tooltip("Hint button")]
+    [SerializeField]
+    private HintManager hintButton;
 
     [Tooltip("MouseLook script")]
     [SerializeField]
@@ -65,6 +70,8 @@ public class Pause : MonoBehaviour
             controlsMenu.SetActive(false); //hide the controls menu
             optionsMenu.SetActive(false); //hide the options menu
             helpMenu.SetActive(false); //hide the help menu
+
+            hintButton.DisableImage();
 
             mouseLook.EnableMouseLook(); // Enable mouse look
             inputManager.EnablePlayerInput(); // Enable player input

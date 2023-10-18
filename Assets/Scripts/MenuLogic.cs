@@ -46,7 +46,11 @@ public class MenuLogic : MonoBehaviour
 
     [Tooltip("Game Goal Panel")]
     [SerializeField]
-    private GameObject goalPanel;  
+    private GameObject goalPanel;
+
+    [Tooltip("Hint button")]
+    [SerializeField]
+    private HintManager hintButton;
 
     [Tooltip("Ammo Count")]
     [SerializeField]
@@ -78,6 +82,8 @@ public class MenuLogic : MonoBehaviour
     IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)
     {
         canPress = false;
+        if (hintButton != null)
+            hintButton.SetCanPress(false);
         float time = 0;
         Vector3 startPosition = mainCamera.transform.localPosition;
         Quaternion startRotation = mainCamera.transform.localRotation;
@@ -98,7 +104,7 @@ public class MenuLogic : MonoBehaviour
         crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
         gameObject.SetActive(false);
 
         // start timer after the start button is pressed 
@@ -107,6 +113,13 @@ public class MenuLogic : MonoBehaviour
             timer.StartTimer();
         }
         canPress = true;
+
+        if (hintButton != null)
+        {
+            hintButton.SetCanPress(true);
+            hintButton.DisableImage();
+        }
+            
     }
 
     public void ControlsButton()

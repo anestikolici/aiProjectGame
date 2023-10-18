@@ -61,7 +61,7 @@ public class MenuLogic : MonoBehaviour
     private GameObject crosshair;
 
     // Controls if the menu buttons can be pressed
-    private bool canPress = false;
+    private bool canPress = true;
 
     private void Start()
     {
@@ -77,6 +77,7 @@ public class MenuLogic : MonoBehaviour
 
     IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)
     {
+        canPress = false;
         float time = 0;
         Vector3 startPosition = mainCamera.transform.localPosition;
         Quaternion startRotation = mainCamera.transform.localRotation;

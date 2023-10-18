@@ -41,7 +41,7 @@ public class MaterialChanger : MonoBehaviour
     public void ChangeMaterial(Dictionary<string, int> PillarList )
     {
 
-        
+       
         //First pillar
         foreach (GameObject cube in cubes_1)
         {

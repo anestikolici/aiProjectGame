@@ -82,7 +82,6 @@ public class logicFunctions : MonoBehaviour
                 pillarList["Pillar3"] = Random.Range(1, 4);
         }
 
-        materialChanger.ChangeMaterial(pillarList);
         foreach (KeyValuePair<string, int> kvp in pillarList)
             Debug.Log(kvp.Key + "/" + kvp.Value);
     }

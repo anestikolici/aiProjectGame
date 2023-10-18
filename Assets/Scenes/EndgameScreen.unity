@@ -559,7 +559,7 @@ Animator:
   m_GameObject: {fileID: 1221684860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a752bfb51a23c64186a29db5b2a9f29, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f6d83d0c50de1e4f9354db9d9f1f2b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -647,6 +647,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c380d89b-f2bb-48c8-961a-e0147c1cafc3
     m_ActionName: MainMenu/Pause[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bdc8d5d2-ab38-4189-9304-df787c5b6939
+    m_ActionName: Player/Tab[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

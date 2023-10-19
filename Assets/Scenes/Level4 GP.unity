@@ -29331,6 +29331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserAudio: {fileID: 3384200591670790611}
+  ammo: 30
+  ammoText: {fileID: 7920998003571113537}
+  reloadAudio: {fileID: 3105668939630369744}
   bulletSpawnPoint: {fileID: 5216299206224398834}
   bulletPrefab: {fileID: 136330, guid: f27c44873df325a4589d2983d12e60b1, type: 3}
   bulletSpeed: 30

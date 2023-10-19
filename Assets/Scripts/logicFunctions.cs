@@ -18,7 +18,7 @@ public class logicFunctions : MonoBehaviour
     public string successContent = "Puzzle cleared! The door has opened";
     public string failureContent = "Time has run out! The door has opened";
 
-    // First questionnaire question object
+        // First questionnaire question object
     [Tooltip("First questionnaire question object")]
     [SerializeField]
     private GameObject firstQuestion;
@@ -165,11 +165,15 @@ public class logicFunctions : MonoBehaviour
     {
         doorLight.color = Color.green;
         door.GetComponent<DoorRotation>().enabled = true;
+
         isSolved = true;
+
         if (success)
             messageText.text = successContent;
         else
-            messageText.text = failureContent;
+        { messageText.text = failureContent;}
+       
+           
         messageText.enabled = true;
         audioPlayerCleared.PlayAudio();
         helpText.SetActive(false);

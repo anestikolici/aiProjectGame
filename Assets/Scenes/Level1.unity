@@ -1629,7 +1629,7 @@ MonoBehaviour:
   helpText: {fileID: 324939138}
   audioPlayerCleared: {fileID: 133047406}
   playerShooting: {fileID: 1348168382}
-  Shooting: {fileID: 0}
+  shooting: {fileID: 0}
   timer: {fileID: 4758660574762674177}
 --- !u!4 &133047402
 Transform:
@@ -14012,6 +14012,7 @@ MonoBehaviour:
   timer: {fileID: 4758660574762674177}
   doorRotation: {fileID: 1779797889}
   hintManager: {fileID: 0}
+  playerCollision: {fileID: 0}
   questionAnswers: []
 --- !u!114 &1173263057
 MonoBehaviour:
@@ -29171,6 +29172,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 1869162475894004750}
   mouseAxis: Y
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!4 &1155344851790028810
 Transform:
   m_ObjectHideFlags: 0
@@ -32820,8 +32822,8 @@ PrefabInstance:
       propertyPath: m_text
       value: "\nIf there are any further questions about the research or any other
         process involved in this study, feel free to contact us. \r\n\nAndigoni Roumana
-        \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 [email]\nCeline Conzen
-        \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 g.pepe@students.uu.nl\nHarris
+        \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 a.kolici@students.uu.nl\nCeline
+        Conzen \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 g.pepe@students.uu.nl\nHarris
         Georgiadis \u2013 c.georgiadis@students.uu.nl\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5569708632291749767, guid: 7bb53124b55de224b9082108984a3081, type: 3}
@@ -34545,6 +34547,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 5404240567415231506}
   mouseAxis: X
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!1 &6092837664761969698
 GameObject:
   m_ObjectHideFlags: 0
@@ -36742,6 +36745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertMouse: {fileID: 5428790820397373454}
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!222 &8735300553753432370
 CanvasRenderer:
   m_ObjectHideFlags: 0

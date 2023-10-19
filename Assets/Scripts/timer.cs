@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     // Level 1 logic script reference
     [Tooltip("Level 1 logic script reference")]
     [SerializeField]
-    private logicFunctions logicFunction1;
+    public logicFunctions logicFunction1;
 
     // Level 2 logic script reference
     [Tooltip("Level 2 logic script reference")]
@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     private EnergyPillarLogic logicFunction3;
 
     public TMP_Text timerText;
-    private float elapsedTime = 300f;
+    public float elapsedTime = 300f;
     private bool isTimerRunning = false;
 
     public float ElapsedTime
@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
             {
                 if (logicFunction1 != null)
                     logicFunction1.EndLevel(false);
-                else if (logicFunction2 != null)
+                    else if (logicFunction2 != null)
                     logicFunction2.EndLevel(false);
                 else if (logicFunction3 != null)
                     logicFunction3.EndLevel(false);
@@ -70,7 +70,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        elapsedTime = 300f;
+        elapsedTime =300f;
     }
 
     public void PauseTimer()

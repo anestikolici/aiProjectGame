@@ -1,32 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Teleporting : MonoBehaviour
 {
-    public Transform teleportPanel;
-    public Transform player;
     public Timer timer;
+
     [Tooltip("Level 1 logic script reference")]
     [SerializeField]
     private logicFunctions logicFunction;
 
+    [Tooltip("Player Transform")]
+    [SerializeField]
+    private Transform player;
+
+    private bool hasTeleported = false;
 
 
     void Update()
     {
-       if(logicFunction != null && timer.elapsedTime == 0f)
+       if(logicFunction != null && timer.elapsedTime == 0f && !hasTeleported)
        {
-              Teleport();
+            Teleport();
+            hasTeleported = true;
        }
     }
 
     void Teleport()
     {
-        Vector3 playerPosition = player.position;
-        Vector3 targetPosition = teleportPanel.position;
-
-        player.position = targetPosition;
+        player.transform.position = new Vector3(23f, 18f, 72f);
     }
 
    

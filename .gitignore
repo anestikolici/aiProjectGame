@@ -74,3 +74,6 @@ crashlytics-build.properties
 .vsconfig
 player_data.csv
 player_pregame.csv
+connectwebgl.zip
+webgl_sharing
+/WebGL Builds/

@@ -4,6 +4,7 @@ using System.Net.Security;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using System.IO;
 
 public class SendDataWithEmail : MonoBehaviour
 {
@@ -31,10 +32,31 @@ public class SendDataWithEmail : MonoBehaviour
         mail.Subject = "Player Data";
         mail.Body = "Player Data";
 
-        Attachment file = new("player_data.csv");
-        Attachment file2 = new("player_pregame.csv");
-        mail.Attachments.Add(file);
-        mail.Attachments.Add(file2);
+        bool filesFound = false;
+
+        Attachment file1;
+        if (File.Exists("player_data.csv"))
+        {
+            file1 = new("player_data.csv");
+            mail.Attachments.Add(file1);
+            filesFound = true;
+        }
+
+        Attachment file2;
+        if (File.Exists("player_pregame.csv"))
+        {
+            file2 = new("player_pregame.csv");
+            mail.Attachments.Add(file2);
+            filesFound = true;
+        }
+
+        // Check if any files were found
+        if (!filesFound)
+        {
+            Debug.LogError("No files found. Email not sent.");
+            yield break; // Exit the coroutine if no files were found
+        }
+
 
         SmtpClient smtp = new("smtp.outlook.com")
         {

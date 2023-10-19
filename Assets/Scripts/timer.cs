@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
             {
                 if (logicFunction1 != null)
                     logicFunction1.EndLevel(false);
-                    else if (logicFunction2 != null)
+                else if (logicFunction2 != null)
                     logicFunction2.EndLevel(false);
                 else if (logicFunction3 != null)
                     logicFunction3.EndLevel(false);
@@ -70,7 +70,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        elapsedTime =300f;
+        elapsedTime = 300f;
     }
 
     public void PauseTimer()

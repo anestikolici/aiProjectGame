@@ -32681,6 +32681,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7922483937411844127}
     m_Modifications:
+    - target: {fileID: 276878193957664761, guid: 7bb53124b55de224b9082108984a3081, type: 3}
+      propertyPath: m_text
+      value: '
+
+        Thank you for showing interest in our research study!
+
+
+        This
+        research project is about measuring player experience on different problem-solving
+        tasks with the ultimate goal of creating an emotionally adaptive game experience.
+
+
+        In
+        this study, we will ask you to complete four different puzzle solving tasks
+        in the First-Person Shooter game format. In hand with this, you will fill
+        out a survey about your general demographics before the game. Additionally,
+        after each level, you will be prompted to self-report on your current emotional
+        state.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 725586481042447293, guid: 7bb53124b55de224b9082108984a3081, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 839463083923872188, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_Name
       value: Pregame survey
@@ -32820,11 +32845,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557476383037339827, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_text
-      value: "\nIf there are any further questions about the research or any other
-        process involved in this study, feel free to contact us. \r\n\nAndigoni Roumana
-        \u2013 a.m.roumana@students.uu.nl\nAnesti Kolici \u2013 a.kolici@students.uu.nl\nCeline
-        Conzen \u2013 c.k.conzen@students.uu.nl\nGianluca Pepe \u2013 g.pepe@students.uu.nl\nHarris
-        Georgiadis \u2013 c.georgiadis@students.uu.nl\n\n"
+      value: "\nIt is very important that you play the game in full and do not quit
+        early, as we won't be able to use the data otherwise. For some levels there
+        is a hint button in the pause menu in case you get stuck!\n\nIf there are
+        any further questions about the research or any other process involved in
+        this study, feel free to contact us. \r\n\nAndigoni Roumana \u2013 a.m.roumana@students.uu.nl\nAnesti
+        Kolici \u2013 a.kolici@students.uu.nl\nCeline Conzen \u2013 c.k.conzen@students.uu.nl\nGianluca
+        Pepe \u2013 g.pepe@students.uu.nl\nHarris Georgiadis \u2013 c.georgiadis@students.uu.nl\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5569708632291749767, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive
@@ -32866,6 +32893,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6954998288094395560, guid: 7bb53124b55de224b9082108984a3081, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7432964117229977401, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -32881,6 +32912,10 @@ PrefabInstance:
     - target: {fileID: 7914411847693712049, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_OnFocusSelectAll
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989037253903747235, guid: 7bb53124b55de224b9082108984a3081, type: 3}
+      propertyPath: m_IsOn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279890645321229622, guid: 7bb53124b55de224b9082108984a3081, type: 3}
       propertyPath: m_IsActive

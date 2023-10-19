@@ -6,7 +6,8 @@ public class EnergyPillarLogic : MonoBehaviour
     [SerializeField] Light doorLight;
     [SerializeField] GameObject door;
     public TextMeshProUGUI messageText;
-    public string messageContent = "Puzzle cleared! The door has opened";
+    public string successContent = "Puzzle cleared! The door has opened";
+    public string failureContent = "Time has run out! The door has opened";
 
     // First questionnaire question object
     [Tooltip("First questionnaire question object")]
@@ -38,9 +39,11 @@ public class EnergyPillarLogic : MonoBehaviour
     [SerializeField]
     private Timer timer;
 
-    public bool CheckPuzzle()
+    private bool isSolved = false;
+
+    public void CheckPuzzle()
     {
-        bool isSolved = true;
+        isSolved = true;
         foreach (EnergyBar energyBar in pillar3.GetEnergyBars())
         {
             if (!energyBar.isActiveAndEnabled)
@@ -48,21 +51,31 @@ public class EnergyPillarLogic : MonoBehaviour
                 isSolved = false;
                 break;
             }
-                
         }
 
         if (isSolved)
-        {
-            doorLight.color = Color.green;
-            door.GetComponent<DoorRotation>().enabled = true;
-            messageText.text = messageContent;
-            messageText.enabled = true;
-            audioPlayerCleared.PlayAudio();
-            helpText.SetActive(false);
-            firstQuestion.SetActive(true);
-            playerShooting.SetIsSolved(true);
-            timer.PauseTimer();
-        }
+            EndLevel(true);
+    }
+
+    public void EndLevel(bool success)
+    {
+        isSolved = true;
+        doorLight.color = Color.green;
+        door.GetComponent<DoorRotation>().enabled = true;
+        if (success)
+            messageText.text = successContent;
+        else
+            messageText.text = failureContent;
+        messageText.enabled = true;
+        audioPlayerCleared.PlayAudio();
+        helpText.SetActive(false);
+        firstQuestion.SetActive(true);
+        playerShooting.SetIsSolved(true);
+        timer.PauseTimer();
+    }
+
+    public bool GetIsSolved()
+    {
         return isSolved;
     }
 }

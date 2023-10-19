@@ -224,8 +224,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &120281128
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -556,7 +556,8 @@ MonoBehaviour:
   doorLight: {fileID: 1392439259}
   door: {fileID: 200566178971056783}
   messageText: {fileID: 2875819915727337440}
-  messageContent: Puzzle cleared! Answer the questions to go through the door.
+  successContent: Puzzle cleared! The door has opened
+  failureContent: Time has run out! The door has opened
   firstQuestion: {fileID: 6358681937588406205}
   helpText: {fileID: 2075749339}
   audioPlayerCleared: {fileID: 133047403}
@@ -1020,8 +1021,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &150432742
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -3346,8 +3347,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &514621435
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -3806,7 +3807,7 @@ Transform:
   m_GameObject: {fileID: 629006114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.81, y: 0, z: -1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5049,8 +5050,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &890574787
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -5573,7 +5574,7 @@ Transform:
   m_GameObject: {fileID: 1034687179}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.4, y: 0, z: 2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5654,8 +5655,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &1062258636
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -6355,7 +6356,7 @@ Transform:
   m_GameObject: {fileID: 1147690407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.8100004, y: 0, z: -1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6665,8 +6666,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &1314925298
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -7569,8 +7570,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &1369190204
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -9445,8 +9446,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &1615773077
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -10640,7 +10641,7 @@ Transform:
   m_GameObject: {fileID: 1958567933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.8100004, y: 0, z: -1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11120,8 +11121,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15414286, y: 8.110588, z: 0.16857247}
-  m_Center: {x: 0.1101266, y: 4.034245, z: 0.11164347}
+  m_Size: {x: 0.20130949, y: 4, z: 0.20215277}
+  m_Center: {x: 0.1095092, y: 1.0000001, z: 0.111931175}
 --- !u!33 &2000145739
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -20815,6 +20816,7 @@ MonoBehaviour:
   timer: {fileID: 8235477273710312684}
   doorRotation: {fileID: 6441473819903588673}
   hintManager: {fileID: 8916076122960896379}
+  playerCollision: {fileID: 0}
   questionAnswers: []
 --- !u!65 &2288619699872584179
 BoxCollider:
@@ -25214,6 +25216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertMouse: {fileID: 414237442061981382}
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!114 &4035353713285167463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26588,6 +26591,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 3004177172497320163}
   mouseAxis: Y
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!114 &4594706987318419173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28759,7 +28763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time: 0:00'
+  m_text: 'Time: 5:00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -34124,6 +34128,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 8845028226681454847}
   mouseAxis: X
   mouseLook: {fileID: 1348168381}
+  cameraController: {fileID: 0}
 --- !u!1 &7251053282044909451
 GameObject:
   m_ObjectHideFlags: 0
@@ -37807,6 +37812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a1d706e56506b49887352e93c39e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logicFunction1: {fileID: 0}
+  logicFunction2: {fileID: 133047405}
+  logicFunction3: {fileID: 0}
   timerText: {fileID: 5518921885101107873}
 --- !u!4 &8251234210463896388
 Transform:

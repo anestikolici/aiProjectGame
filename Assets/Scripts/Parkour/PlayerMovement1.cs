@@ -1,16 +1,15 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour
 {
     //Ground
-    float groundSpeed = 4f;
-    float runSpeed = 8f;
+    float groundSpeed = 8f;
+    float runSpeed = 12f;
     float grAccel = 20f;
 
     //Air
-    float airSpeed = 3f;
+    float airSpeed = 4f;
     float airAccel = 20f;
 
     //Jump
@@ -43,6 +42,8 @@ public class PlayerMovement1 : MonoBehaviour
     bool crouched;
     bool grounded;
 
+    private bool enableInput = false;
+
     Collider ground;
 
     Vector3 groundNormal = Vector3.up;
@@ -68,23 +69,27 @@ public class PlayerMovement1 : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
     }
 
-    void OnGUI()
-    {
-        GUILayout.Label("Spid: " + new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude);
-        GUILayout.Label("SpidUp: " + rb.velocity.y);
-    }
+    //void OnGUI()
+    //{
+    //    GUILayout.Label("Spid: " + new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude);
+    //    GUILayout.Label("SpidUp: " + rb.velocity.y);
+    //}
 
     void Update()
     {
-        col.material.dynamicFriction = 0f;
-        dir = Direction();
-
-        running = (Input.GetKey(KeyCode.LeftShift) && Input.GetAxisRaw("Vertical") > 0.9);
-        crouched = (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.C));
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (enableInput)
         {
-            jump = true;
+            col.material.dynamicFriction = 0f;
+            dir = Direction();
+
+            running = (Input.GetKey(KeyCode.LeftShift) && Input.GetAxisRaw("Vertical") > 0.9);
+            crouched = (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.C));
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jump = true;
+            }
         }
+
 
         //Special use
         //if (Input.GetKeyDown(KeyCode.T)) transform.position = new Vector3(0f, 30f, 0f);
@@ -94,47 +99,51 @@ public class PlayerMovement1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (crouched)
+        if (enableInput)
         {
-            col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10f);
+            if (crouched)
+            {
+                col.height = Mathf.Max(0.6f, col.height - Time.deltaTime * 10f);
+            }
+            else
+            {
+                col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10f);
+            }
+
+            if (wallStickTimer == 0f && wallBan > 0f)
+            {
+                bannedGroundNormal = groundNormal;
+            }
+            else
+            {
+                bannedGroundNormal = Vector3.zero;
+            }
+
+            wallStickTimer = Mathf.Max(wallStickTimer - Time.deltaTime, 0f);
+            wallBan = Mathf.Max(wallBan - Time.deltaTime, 0f);
+
+            switch (mode)
+            {
+                case Mode.Wallruning:
+                    camCon.SetTilt(WallrunCameraAngle());
+                    Wallrun(dir, wallSpeed, wallClimbSpeed, wallAccel);
+                    if (ground.tag != "InfiniteWallrun") wrTimer = Mathf.Max(wrTimer - Time.deltaTime, 0f);
+                    break;
+
+                case Mode.Walking:
+                    camCon.SetTilt(0);
+                    Walk(dir, running ? runSpeed : groundSpeed, grAccel);
+                    break;
+
+                case Mode.Flying:
+                    camCon.SetTilt(0);
+                    AirMove(dir, airSpeed, airAccel);
+                    break;
+            }
+
+            jump = false;
         }
-        else
-        {
-            col.height = Mathf.Min(1.8f, col.height + Time.deltaTime * 10f);
-        }
-
-        if (wallStickTimer == 0f && wallBan > 0f)
-        {
-            bannedGroundNormal = groundNormal;
-        }
-        else
-        {
-            bannedGroundNormal = Vector3.zero;
-        }
-
-        wallStickTimer = Mathf.Max(wallStickTimer - Time.deltaTime, 0f);
-        wallBan = Mathf.Max(wallBan - Time.deltaTime, 0f);
-
-        switch (mode)
-        {
-            case Mode.Wallruning:
-                camCon.SetTilt(WallrunCameraAngle());
-                Wallrun(dir, wallSpeed, wallClimbSpeed, wallAccel);
-                if (ground.tag != "InfiniteWallrun") wrTimer = Mathf.Max(wrTimer - Time.deltaTime, 0f);
-                break;
-
-            case Mode.Walking:
-                camCon.SetTilt(0);
-                Walk(dir, running ? runSpeed : groundSpeed, grAccel);
-                break;
-
-            case Mode.Flying:
-                camCon.SetTilt(0);
-                AirMove(dir, airSpeed, airAccel);
-                break;
-        }
-
-        jump = false;
+        
     }
 
 
@@ -157,6 +166,15 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
+    public void EnableInput()
+    {
+        enableInput = true;
+    }
+
+    public void DisableInput()
+    {
+        enableInput = false;
+    }
 
 
     #region Collisions

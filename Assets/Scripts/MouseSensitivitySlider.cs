@@ -18,6 +18,11 @@ public class MouseSensitivitySlider : MonoBehaviour
     [SerializeField]
     private MouseLook mouseLook;
 
+    // CameraController script reference
+    [Tooltip("CameraController script reference")]
+    [SerializeField]
+    private CameraController cameraController;
+
     // Current audio volume
     private static float mouseSensitivity;
 
@@ -48,6 +53,8 @@ public class MouseSensitivitySlider : MonoBehaviour
         PlayerPrefs.Save();
 
         if (mouseLook != null)
-            mouseLook.UpdateSensitivities();         
+            mouseLook.UpdateSensitivities();     
+        else if (cameraController != null)
+            cameraController.UpdateSensitivities();
     }
 }

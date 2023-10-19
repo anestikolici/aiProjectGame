@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
 
 public class PauseParkour : MonoBehaviour
 {
@@ -31,13 +31,20 @@ public class PauseParkour : MonoBehaviour
     [SerializeField]
     private CameraController cameraController;
 
+    [Tooltip("PlayerMovement1 script")]
+    [SerializeField]
+    private PlayerMovement1 playerMovement;
+
+    [Tooltip("Shooting script")]
+    [SerializeField]
+    private Shooting shooting;
+
     [Tooltip("Crosshair")]
     [SerializeField]
     private GameObject crosshair;
 
     public GameObject Player; //for removing gun on pause
 
-    
     [Tooltip("Input Manager script")]
     [SerializeField]
     private Timer _timer;
@@ -45,32 +52,18 @@ public class PauseParkour : MonoBehaviour
     /*private PlayerInputs mainMenuActions;
     private PlayerInputs.MainMenuActions _pause;*/
 
-    private bool isPaused = false;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        /*mainMenuActions = new PlayerInputs();
-        _pause = mainMenuActions.MainMenu;
-        _pause.Enable();
-        _pause.Pause.performed += PausePerformed;    */  
-    }
-
-    void Start()
-    {
-        _timer.StartTimer();
-    }
+    private bool isPaused = true;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (isPaused & (mainMenu.activeInHierarchy | controlsMenu.activeInHierarchy | optionsMenu.activeInHierarchy | helpMenu.activeInHierarchy) & _timer.ElapsedTime < 300f)
             {
                 DisablePause();
                 isPaused = false;
             }
-            else
+            else if (_timer.ElapsedTime < 300f)
             {
                 PauseGame();
                 isPaused = true;
@@ -80,34 +73,26 @@ public class PauseParkour : MonoBehaviour
     // Update is called once per frame
     public void PauseGame()
     {
-        Debug.Log("ESC");
-
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None; //show the cursor so the player can select options
         Cursor.visible = true;
 
         mainMenu.SetActive(true); //show the main menu
         playButton.SetActive(false); //hide the play button
         resumeButton.SetActive(true); //show the resume button
-        controlsMenu.SetActive(true); //hide the controls menu
-        optionsMenu.SetActive(true); //hide the options menu
 
-        Player.SetActive(false);// disable player
-
+        shooting.SetCanShoot(false);
         cameraController.DisableCameraControl(); //stop camera movement according to mouse position
+        playerMovement.DisableInput();
 
         _timer.PauseTimer(); //pause the timer
 
-        crosshair.SetActive(false); //hide the crosshair  
-        Debug.Log("second if");
-
-        
+        crosshair.SetActive(false); //hide the crosshair         
     }
 
     public void DisablePause()
     {
-        
-        Debug.Log("exit");
-
+        Time.timeScale = 1f;
         mainMenu.SetActive(false); //hide the main menu
         resumeButton.SetActive(false); //hide the resume button
         controlsMenu.SetActive(false); //hide the controls menu
@@ -115,16 +100,15 @@ public class PauseParkour : MonoBehaviour
         helpMenu.SetActive(false); //hide the help menu
 
         cameraController.EnableCameraControl(); // Enable mouse look
+        playerMovement.EnableInput();
+        shooting.SetCanShoot(true);
 
         _timer.StartTimer(); // Enable timer
-
-        Player.SetActive(true); //Enable player
 
         crosshair.SetActive(true); //show the crosshair  
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Debug.Log("first if");
     }
 
      

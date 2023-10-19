@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    // Laser audio
+    [Tooltip("Laser audio")]
+    [SerializeField]
+    private AudioSource laserAudio;
+
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
     private int bulletsShot = 0;
     
     private ProceduralRecoil recoilComponent;
+    private bool canShoot = true;
 
     void Start()
     {
@@ -19,11 +25,11 @@ public class Shooting : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
             bulletsShot++;
-            recoilComponent.StartRecoil(0.2f, 10f, 10f);
-
+            recoilComponent.StartRecoil(0.2f, 4f, 4f);
+            laserAudio.Play();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
         }
@@ -32,5 +38,10 @@ public class Shooting : MonoBehaviour
     public int GetBulletsShot()
     {
         return bulletsShot;
+    }
+
+    public void SetCanShoot(bool canShoot)
+    {
+        this.canShoot = canShoot;
     }
 }

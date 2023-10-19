@@ -12,10 +12,15 @@ public class MenuLogicParkour : MonoBehaviour
     [SerializeField]
     private PlayerMovement1 playerMovement;
 
-    // MouseLook script
-    [Tooltip("MouseLook script")]
+    // CameraController script
+    [Tooltip("CameraController script")]
     [SerializeField]
     private CameraController cameraController;
+
+    // Shooting script
+    [Tooltip("Shooting Script")]
+    [SerializeField]
+    private Shooting shooting;
 
     // Main camera
     [Tooltip("Main Camera")]
@@ -59,7 +64,7 @@ public class MenuLogicParkour : MonoBehaviour
     private GameObject crosshair;
 
     // Controls if the menu buttons can be pressed
-    private bool canPress = false;
+    private bool canPress = true;
 
     private void Start()
     {
@@ -71,23 +76,19 @@ public class MenuLogicParkour : MonoBehaviour
     // Start is called before the first frame update
     public void StartButton()
     {
-        Debug.Log("Works");
-        gameObject.SetActive(false);
-        Cursor.visible = false;
-        cameraController.EnableCameraControl();
-        //StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0f), Quaternion.identity, 2));
-
-
+        StartCoroutine(LerpPosition(new Vector3(0f, 0.67f, 0.2f), Quaternion.identity, 2));
     }
 
-    /*IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)
+    IEnumerator LerpPosition(Vector3 targetPosition, Quaternion targetRotation, float duration)
     {
+        canPress = false;
+
         float time = 0;
         Vector3 startPosition = mainCamera.transform.localPosition;
         Quaternion startRotation = mainCamera.transform.localRotation;
         while (time < duration)
         {
-            mainCamera.transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, targetPosition, time / duration), 
+            mainCamera.transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, targetPosition, time / duration),
                 Quaternion.Lerp(startRotation, targetRotation, time / duration));
             time += Time.deltaTime;
             yield return null;
@@ -96,13 +97,11 @@ public class MenuLogicParkour : MonoBehaviour
 
         if (cameraChildren != null)
             cameraChildren.SetActive(true);
-        inputManager.EnablePlayerInput();
-        playerMovement.SetCameraOriginalPos();
-        mouseLook.EnableMouseLook();
+
         crosshair.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
         gameObject.SetActive(false);
 
         // start timer after the start button is pressed 
@@ -111,26 +110,31 @@ public class MenuLogicParkour : MonoBehaviour
             timer.StartTimer();
         }
         canPress = true;
+        cameraController.EnableCameraControl();
+        playerMovement.EnableInput();
+
     }
-    */
+
     public void ControlsButton()
     {
-        
+        if (canPress)
+        {
             mainMenu.SetActive(false);
             controlsMenu.SetActive(true);
             ammoCountPanel.SetActive(false);
             pausePanel.SetActive(false);
-        
+        }
     }
 
     public void OptionsButton()
     {
-        
+        if (canPress)
+        {
             mainMenu.SetActive(false);
             optionsMenu.SetActive(true);
             ammoCountPanel.SetActive(false);
             pausePanel.SetActive(false);
-        
+        }
     }
 
     public void BackButton()
@@ -148,13 +152,13 @@ public class MenuLogicParkour : MonoBehaviour
 
     public void GoalButton()
     {
-       
-        
+        if (canPress)
+        {
             mainMenu.SetActive(false);
             goalPanel.SetActive(true);
             ammoCountPanel.SetActive(false);
             pausePanel.SetActive(false);
-        
+        }
     }
 
     public void ExitButton()
@@ -164,12 +168,15 @@ public class MenuLogicParkour : MonoBehaviour
 
     public void ResumeButton()
     {
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mainMenu.SetActive(false);
         cameraController.EnableCameraControl();
+        playerMovement.EnableInput();
         crosshair.SetActive(true);
         timer.StartTimer();
+        shooting.SetCanShoot(true);
 
         Player.SetActive(true); //Enable player
     }

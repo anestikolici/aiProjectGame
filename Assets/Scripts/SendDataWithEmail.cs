@@ -11,6 +11,7 @@ public class SendDataWithEmail : MonoBehaviour
     void Start()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(SendMail());
     }
 

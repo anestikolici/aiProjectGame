@@ -36,9 +36,6 @@ public class Tile : MonoBehaviour
     // Controls whether the tile is on or off
     private bool isOn;
 
-    // Controls whether the puzzle has been solved
-    private static bool isSolved = false;
-
     // Total number of tiles that were stepped on (excluding the reset tile)
     private static int totalTiles = 0;
 
@@ -58,7 +55,7 @@ public class Tile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isSolved)
+        if (other.CompareTag("Player") && !tilePuzzleLogic.GetIsSolved())
         {
             Color currentColor;
             if (adjacentTiles.Count > 0)
@@ -68,7 +65,7 @@ public class Tile : MonoBehaviour
                 {                   
                     r.GetPropertyBlock(materialPropertyBlock);
                     currentColor = materialPropertyBlock.GetColor("_Color");
-                    if (currentColor == lightOff.color)
+                    if (currentColor.CompareRGB(lightOff.color))
                         materialPropertyBlock.SetColor("_Color", lightOn.color);
                     else
                         materialPropertyBlock.SetColor("_Color", lightOff.color);
@@ -80,7 +77,7 @@ public class Tile : MonoBehaviour
 
                 thisRenderer.GetPropertyBlock(materialPropertyBlock);
                 currentColor = materialPropertyBlock.GetColor("_Color");
-                if (currentColor == lightOff.color)
+                if (currentColor.CompareRGB(lightOff.color))
                     materialPropertyBlock.SetColor("_Color", lightOn.color);              
                 else
                     materialPropertyBlock.SetColor("_Color", lightOff.color);
@@ -88,7 +85,7 @@ public class Tile : MonoBehaviour
                 ChangeTileStatus(!isOn);
                 thisRenderer.SetPropertyBlock(materialPropertyBlock);
 
-                isSolved = tilePuzzleLogic.CheckPuzzle();
+                tilePuzzleLogic.CheckPuzzle();
             }
             else
             {

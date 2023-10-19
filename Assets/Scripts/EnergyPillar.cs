@@ -36,7 +36,7 @@ public class EnergyPillar : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("laser"))
+        if (other.CompareTag("laser") && !logic.GetIsSolved()) 
         {
             bool selectedToMove = true;
 

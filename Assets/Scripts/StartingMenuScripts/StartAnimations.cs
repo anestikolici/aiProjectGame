@@ -15,7 +15,7 @@ public class StartAnimations : MonoBehaviour
     mainMenuActions = new PlayerInputs();
     _dancingActions = mainMenuActions.MainMenu;
     _dancingActions.Enable();
-    _dancingActions.Dance.performed += DancePerformed; 
+    _dancingActions.Dance.performed += DancePerformed;
    }
   
    

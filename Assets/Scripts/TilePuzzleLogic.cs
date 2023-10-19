@@ -6,7 +6,8 @@ public class TilePuzzleLogic : MonoBehaviour
     [SerializeField] Light doorLight;
     [SerializeField] GameObject door;
     public TextMeshProUGUI messageText;
-    public string messageContent = "Puzzle cleared! The door has opened";
+    public string successContent = "Puzzle cleared! The door has opened";
+    public string failureContent = "Time has run out! The door has opened";
 
     // First questionnaire question object
     [Tooltip("First questionnaire question object")]
@@ -46,6 +47,8 @@ public class TilePuzzleLogic : MonoBehaviour
     // Array of all tiles
     private GameObject[] tiles;
 
+    private bool isSolved = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,33 +56,44 @@ public class TilePuzzleLogic : MonoBehaviour
         tiles = GameObject.FindGameObjectsWithTag("Tile");
     }
 
-    public bool CheckPuzzle()
+    public void CheckPuzzle()
     {
-        bool isSolved = true;
-        foreach(GameObject tile in tiles)
-        {         
+        isSolved = true;
+        foreach (GameObject tile in tiles)
+        {
             if (tile.GetComponent<Tile>().GetIsOn() == false)
             {
                 isSolved = false;
-                return isSolved;
+                break;
             }
         }
 
         if (isSolved)
-        {
-            doorLight.color = Color.green;
-            door.GetComponent<DoorRotation>().enabled = true;
-            messageText.text = messageContent;
-            messageText.enabled = true;
-            audioPlayerCleared.PlayAudio();
-            helpText.SetActive(false);
-            firstQuestion.SetActive(true);   
-            weapon.SetActive(true);
-            playerShooting.SetAmmo(30);
-            ammoText.text = ("Ammo: 30");
-            playerShooting.SetIsSolved(true);
-            timer.PauseTimer();
-        }
+            EndLevel(true);
+    }
+
+    public void EndLevel(bool success)
+    {
+        isSolved = true;
+        doorLight.color = Color.green;
+        door.GetComponent<DoorRotation>().enabled = true;
+        if (success)
+            messageText.text = successContent;
+        else
+            messageText.text = failureContent;
+        messageText.enabled = true;
+        audioPlayerCleared.PlayAudio();
+        helpText.SetActive(false);
+        firstQuestion.SetActive(true);
+        weapon.SetActive(true);
+        playerShooting.SetAmmo(30);
+        ammoText.text = ("Ammo: 30");
+        playerShooting.SetIsSolved(true);
+        timer.PauseTimer();
+    }
+
+    public bool GetIsSolved()
+    {
         return isSolved;
     }
 }

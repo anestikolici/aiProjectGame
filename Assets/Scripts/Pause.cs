@@ -63,7 +63,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     public void PausePerformed(InputAction.CallbackContext context)
     {   
-        if ((mainMenu.activeInHierarchy | controlsMenu.activeInHierarchy | optionsMenu.activeInHierarchy | helpMenu.activeInHierarchy) & _timer.ElapsedTime > 0f)
+        if ((mainMenu.activeInHierarchy | controlsMenu.activeInHierarchy | optionsMenu.activeInHierarchy | helpMenu.activeInHierarchy) & _timer.ElapsedTime < 300f)
         {
             mainMenu.SetActive(false); //hide the main menu
             resumeButton.SetActive(false); //hide the resume button
@@ -84,7 +84,7 @@ public class Pause : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        else if (_timer.ElapsedTime > 0f)
+        else if (_timer.ElapsedTime < 300f)
         {
             Cursor.lockState = CursorLockMode.None; //show the cursor so the player can select options
             Cursor.visible = true;

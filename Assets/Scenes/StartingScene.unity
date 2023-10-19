@@ -1108,6 +1108,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c380d89b-f2bb-48c8-961a-e0147c1cafc3
     m_ActionName: MainMenu/Pause[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bdc8d5d2-ab38-4189-9304-df787c5b6939
+    m_ActionName: Player/Tab[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2657,7 +2661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &244093647734193408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,6 +5833,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 1237327206769429884}
   mouseAxis: X
   mouseLook: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!224 &6692731435704018481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6682,6 +6687,7 @@ MonoBehaviour:
   mouseSensitivitySlider: {fileID: 8593342901866619840}
   mouseAxis: Y
   mouseLook: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!223 &9126799298168346991
 Canvas:
   m_ObjectHideFlags: 0
@@ -6738,6 +6744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertMouse: {fileID: 1783702040852844737}
   mouseLook: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

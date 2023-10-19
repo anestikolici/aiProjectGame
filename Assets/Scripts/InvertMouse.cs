@@ -15,6 +15,12 @@ public class InvertMouse : MonoBehaviour
     [SerializeField]
     private MouseLook mouseLook;
 
+    // CameraController script reference
+    [Tooltip("CameraController script reference")]
+    [SerializeField]
+    private CameraController cameraController;
+
+
     // Represents a boolean: 0=inverted, 1=normal
     private static int invert;
 
@@ -52,5 +58,7 @@ public class InvertMouse : MonoBehaviour
 
         if (mouseLook != null)
             mouseLook.InvertMouse();
+        else if (cameraController != null)
+            cameraController.InvertMouse();
     }
 }

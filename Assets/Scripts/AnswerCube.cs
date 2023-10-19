@@ -14,7 +14,8 @@ public class AnswerCube : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("laser"))
-        { 
+        {
+            Destroy(other.gameObject);
             questionnaireManager.questionAnswers.Add(gameObject.name);
             questionnaireManager.NextQuestion();          
         }

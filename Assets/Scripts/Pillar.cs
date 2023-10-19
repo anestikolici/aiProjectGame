@@ -4,7 +4,6 @@ public class Pillar : MonoBehaviour
 {
     private logicFunctions logic;
     private MaterialChanger materialChanger;
-    private static bool isSolved = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +19,10 @@ public class Pillar : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (!isSolved && other.CompareTag("laser"))
+        if (!logic.GetIsSolved() && other.CompareTag("laser"))
         {
             logic.IncrementPillar(gameObject.name);
-            isSolved = logic.CheckPuzzle();
+            logic.CheckPuzzle();
             materialChanger.ChangeMaterial(logic.PillarList);
         }
     }

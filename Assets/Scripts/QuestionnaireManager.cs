@@ -21,7 +21,7 @@ public class QuestionnaireManager : MonoBehaviour
     [SerializeField]
     private PlayerShooting playerShooting;
 
-        // Player shooting script
+     // Player shooting script
     [Tooltip("2nd Player shooting script. Is only required in puzzles with shooting")]
     [SerializeField]
     private Shooting playerShooting2;
@@ -53,6 +53,10 @@ public class QuestionnaireManager : MonoBehaviour
     [Tooltip("HintManager script")]
     [SerializeField]
     private HintManager hintManager;
+
+    [Tooltip("Player Collision script (Only used in level 4)")]
+    [SerializeField]
+    private PlayerCollision playerCollision;
 
     #endregion
 
@@ -96,28 +100,29 @@ public class QuestionnaireManager : MonoBehaviour
         StreamWriter sw = new("player_data.csv", true);
 
         if (sw.BaseStream.Length == 0)
-        {
-            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot/Stepped Tiles;Number of Resets;HintsPressed;Elapsed Time");
-        }
+            sw.WriteLine("Level;Valence;Arousal;Dominance;Bullets Shot/Stepped Tiles;Number of Resets/Falls;HintsPressed;Remaining Time;Success");
 
         string line;
+        int success = 1;
+        if (timer.ElapsedTime == 0f)
+            success = 0;
 
         switch (currentLevel)
         {
             case "1":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;0;{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};0;0;{timer.ElapsedTime};{success}";
                 sw.WriteLine(line);              
                 break;
             case "2":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{resetTile.GetTotalTiles()};{resetTile.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{resetTile.GetTotalTiles()};{resetTile.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime};{success}";
                 sw.WriteLine(line);
                 break;
             case "3":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting.GetBulletsShot()};{pillar.GetTotalResets()};{hintManager.GetHitnsPressed()};{timer.ElapsedTime};{success}";
                 sw.WriteLine(line);
                 break;
             case "4":
-                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting2.GetBulletsShot()};0;0;{timer.ElapsedTime}";
+                line = $"{currentLevel};{questionAnswers[0]};{questionAnswers[1]};{questionAnswers[2]};{playerShooting2.GetBulletsShot()};{playerCollision.GetNumberOfFalls()};0;{timer.ElapsedTime};{success}";
                 sw.WriteLine(line);
                 break;
         }

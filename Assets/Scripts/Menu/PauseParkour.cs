@@ -56,7 +56,7 @@ public class PauseParkour : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused & (mainMenu.activeInHierarchy | controlsMenu.activeInHierarchy | optionsMenu.activeInHierarchy | helpMenu.activeInHierarchy) & _timer.ElapsedTime < 300f)
             {

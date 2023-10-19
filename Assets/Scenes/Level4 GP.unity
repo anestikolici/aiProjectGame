@@ -12890,7 +12890,7 @@ GameObject:
   - component: {fileID: 2035316897252661754}
   - component: {fileID: 4321961855138720563}
   - component: {fileID: 8024777923450784394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SciFiGunLightRad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2337,9 +2337,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Beat the levels to win the game.\n\nAfter each level, you will be asked
     to state your experience, regarding arousal, valance and dominance in a scale
-    of 1 to 9, using 5 images. \n\nYour performance in each level matters!\n\nYou
-    have 5 minutes to complete each level. Once the timer runs out, the level automatically
-    ends.\n"
+    of 1 to 9, using 5 images. \n\nYour performance in each level matters!\n\nThere
+    are 4 levels in total. You have 5 minutes to complete each level. Once the timer
+    runs out, the level automatically ends.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

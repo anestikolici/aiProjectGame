@@ -3433,10 +3433,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Shoot the pillars to turn the lights on and off.
 
+
     Turn on the same
     number of lights in each pillar to open the door.
 
-    Notice that they interact
+
+    Notice how they interact
     with each other!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32673,6 +32675,7 @@ MonoBehaviour:
   logicFunction2: {fileID: 0}
   logicFunction3: {fileID: 0}
   timerText: {fileID: 8995733891800645196}
+  elapsedTime: 300
 --- !u!1001 &4872657219884180732
 PrefabInstance:
   m_ObjectHideFlags: 0

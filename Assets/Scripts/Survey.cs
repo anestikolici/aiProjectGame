@@ -144,7 +144,7 @@ public class Survey : MonoBehaviour
     public void SaveToCSV()
     {
         // Open or create the CSV file
-        StreamWriter sw = new StreamWriter(csvFilePath, true);
+        StreamWriter sw = new (csvFilePath, true);
 
         // Write header if the file is empty (assuming the columns are fixed)
         if (sw.BaseStream.Length == 0)

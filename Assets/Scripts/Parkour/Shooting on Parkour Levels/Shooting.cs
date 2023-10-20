@@ -53,9 +53,8 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && hasAmmo)
         {
             UpdateCurrentAmmo();
-            UnityEngine.Debug.Log("Current ammo: " + currentAmmo);
             bulletsShot++;
-            recoilComponent.StartRecoil(0.2f, 4f, 4f);
+            recoilComponent.StartRecoil(0.2f, 2f, 2f);
             laserAudio.Play();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;

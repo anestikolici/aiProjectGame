@@ -87,8 +87,10 @@ public class MouseLook : MonoBehaviour
 
     public void UpdateSensitivities()
     {
-        mouseSensitivityX = PlayerPrefs.GetFloat("MouseSensitivityX");
-        mouseSensitivityY = PlayerPrefs.GetFloat("MouseSensitivityY");
+        if (PlayerPrefs.HasKey("MouseSensitivityX"))
+            mouseSensitivityX = PlayerPrefs.GetFloat("MouseSensitivityX");
+        if (PlayerPrefs.HasKey("MouseSensitivityY"))
+            mouseSensitivityY = PlayerPrefs.GetFloat("MouseSensitivityY");
     }
 
     public void InvertMouse()

@@ -175,8 +175,8 @@ public class MenuLogic : MonoBehaviour
 
     public void ExitButton()
     {
-        StartCoroutine(SendMail());
-        Application.Quit();
+        if (canPress)
+            StartCoroutine(SendMail());      
     }
 
     /// <summary>
@@ -216,8 +216,8 @@ public class MenuLogic : MonoBehaviour
         // Check if any files were found
         if (!filesFound)
         {
-            Debug.LogError("No files found. Email not sent.");
-            yield break; // Exit the coroutine if no files were found
+            Debug.Log("No files found. Email not sent.");
+            Application.Quit();
         }
 
 
@@ -243,6 +243,7 @@ public class MenuLogic : MonoBehaviour
         }
 
         Debug.Log("Email sent successfully!");
+        Application.Quit();
     }
 
     public void ResumeButton()

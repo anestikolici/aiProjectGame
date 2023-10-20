@@ -93,8 +93,10 @@ public class CameraController : MonoBehaviour
 
     public void UpdateSensitivities()
     {
-        sensX = PlayerPrefs.GetFloat("MouseSensitivityX") / 20f;
-        sensY = PlayerPrefs.GetFloat("MouseSensitivityY") / 20f;
+        if (PlayerPrefs.HasKey("MouseSensitivityX"))
+            sensX = PlayerPrefs.GetFloat("MouseSensitivityX") / 20f;
+        if (PlayerPrefs.HasKey("MouseSensitivityY"))
+            sensY = PlayerPrefs.GetFloat("MouseSensitivityY") / 20f;
     }
 
     public void InvertMouse()
